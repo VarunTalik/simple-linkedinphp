@@ -1,4 +1,4 @@
-#summary Changes to the SimpleLinkedIn PHP library.
+#summary Changes (by version) to the SimpleLinkedIn PHP library.
 #labels Phase-Implementation
 
 = SimpleLinkedIn ChangeLog =
