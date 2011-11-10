@@ -87,6 +87,7 @@
 *Changes*
 
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports. See issue 6 for details.
+  * Demo scripts now check that sessions have been enabled on the local server, a requirement for the demo scripts to work. See issue 7 for more details.
 
 ==Version 3.0.2==
 
