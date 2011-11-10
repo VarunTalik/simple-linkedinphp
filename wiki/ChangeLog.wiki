@@ -106,15 +106,21 @@
 
 ==Version 3.0.0==
 
-While there haven't been any new features added to the library, we've rolled out version 3.0.0 as a completely new major release due to the following changes:
+===Core===
 
-  * The code has been completely re-factored, including camelCasing the method calls where needed;
-  * Streamlined the libraries interaction with the stand-alone OAuth library, and;
-  * Increased portability by moving the API tokens outside of the library itself... this allows you, for instance, to make use of the same Simple-LinkedIn file for multiple projects, rather than a single project. This change resulted in a change to the class constructor; please see the demo script and source for more detail.
+*New*
 
-Other minor enhancements include:
+  * Added private `fetch()` method, used to send all requests to the OAuth library.
 
-  * Adding an 'oauth' component to the libraries API call responses to aid in debugging:
+*Changes*
+  
+  * Renamed all existing methods to their camel case equivalent, e.g. `is_id()` -> `isId()`.
+  * Moved all class interaction with the stand-alone OAuth library to the new `fetch()` method.
+  * Modified the class constructor, now taking in a single array parameter that contains the application API keys. 
+  * Modified `share()` method, fixing a bug related to improper encoding of characters.
+  * Removed `_API_KEY`, `_API_SECRET`, `_API_DEV_MODE`, `_API_DEV_KEY`, `_API_DEV_SECRET` class constants, moving the determination of application keys to outside of the library so that multiple applications can use the same install.
+  * Modified the returned values from all methods, adding an `'oauth'` component to the libraries API call responses to aid in debugging:
+
 {{{
 $response = array(
   'info'     => Connection information from cURL,
@@ -123,9 +129,6 @@ $response = array(
   'success'  => Boolean indicating method success
 );
 }}}
-  * Fixed a bug in the share() method related to improper encoding of characters.
-
-As always, have at the [http://simplelinkedin.fiftymission.net demo site] to see it in action. Let me know if you have any issues.
 
 ==Version 2.1.0==
 
@@ -172,7 +175,7 @@ $response = array(
 
 *Changes*
 
-  * Modified `send_request()` to return the original OAuth request that the class sends to LinkedIn.
+  * Modified `send_request()` method to return the original OAuth request that the class sends to LinkedIn.
 
 ==Version 2.0.0==
 
