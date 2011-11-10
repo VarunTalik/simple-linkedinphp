@@ -91,9 +91,24 @@ As always, have at the [http://simplelinkedin.fiftymission.net demo site] to see
 
 ==Version 2.1.0==
 
-The latest version of the library makes changes to the $response variable from many calls, standardizing them across all methods. Where some methods returned boolean and others an array containing LinkedIn response and connection information, all methods now return an array containing the LinkedIn response, connection information, and a third element containing method/function success.
+===Core===
 
-The format is as follows:
+*New*
+
+  * Added `comment()` method, used to post a comment on a network share.
+  * Added `comments()` method, used to retrieve all the comments on a given network share.
+  * Added `like()` method, used to like a network share.
+  * Added `likes()` method, used to retrieve the likes on a given network share.
+  * Added `set_response_format()` method, used to set the data format of the LinkedIn response.
+  * Added `unlike()` method, used to unlike a previously liked network share.
+  * Added `_RESPONSE_JSON` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSON.
+  * Added `_RESPONSE_JSONP` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSONP.
+  * Added `_RESPONSE_XML` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to XML. This is the default setting. 
+  * Added existence check for PECL OAuth extension - class will throw an exception if it is found, as it conflicts with the required stand-alone OAuth library required by the class.
+
+*Changes*
+
+  * Modified the returned values from all methods, standardizing the response to the following format:
 
 {{{
 $response = array(
@@ -103,23 +118,9 @@ $response = array(
 );
 }}}
 
-This was done to enable access to full response data from LinkedIn from all methods, and also to reduce your need to parse and check each LinkedIn response for specific success parameters, such as an HTTP 200 or 201 response. The library handles all of this, allowing you to simplify success verification to:
+*Miscellaneous*
 
-{{{
-$response = $LINKEDIN->some_action();
-if($response['success']) {
-  // proceed as needed
-} else {
-  // handle errors
-}
-}}}
-
-Updates to this version:
-  
-  # Added ability to like, unlike, and comment on connection shares via new like(), unlike(), likes(), comment(), comments() methods;
-  # Per LinkedIn's new data features, implemented system to allow you to specify the format you would like the LinkedIn response in; XML (default), JSON or JSONP.  This is achieved via a call to LINKEDIN->set_response_format(format), where format can be set using the class constants (LINKEDIN::_RESPONSE_JSON, LINKEDIN::_RESPONSE_JSONP, LINKEDIN::_RESPONSE_XML).  The default format, matching the LinkedIn API is XML, and if you wish to use XML you do not need to worry about setting the response type.
-  # Increased method parameter checking and error handling capabilities.
-  # Library now verifies that the conflicting PECL OAuth extension is not installed before instantiating.
+  * Added internal data/parameter checking to key methods.
 
 ==Version 2.0.1==
 
