@@ -94,7 +94,7 @@
 
 *Miscellaneous*
 
-  * Changed demo scripts from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`.
+  * Changed demo scripts from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`. See issue 4 for details.
 
 ==Version 3.0.1==
 
