@@ -3,9 +3,9 @@
 
 = ReleaseNotes =
 
-==3.1.1==
+==Version 3.1.1==
 
-New functionality: Version 3.1.1 adds Job Posting support via the new methods:
+New features: Added new Job Posting API related functionality, including the new methods:
   * postJob(), closeJob(), editJob() and renewJob()
 
 Please note that the Job Posting API is a _closed_ API... to use this functionality you must have a Job Posting account with LinkedIn.
@@ -15,7 +15,9 @@ Debugging/trouble-shooting: We've added a couple of helpful methods which you ca
 
 Additionally, we've adding some internal data/parameter checking to hopefully catch bad inputs _before_ they are sent to the LinkedIn API.
 
-==3.1.0==
+Full details can be found in the ChangeLog#Version_3.1.1
+
+==Version 3.1.0==
 
 Version 3.1.0 adds support for the Jobs and Company APIs, including:
   * Company API-specific methods: company(), companyProducts(), followCompany(), followedCompanies(), searchCompanies(), suggestedCompanies(), unfollowCompany()
