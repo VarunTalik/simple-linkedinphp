@@ -33,11 +33,17 @@ Additionally, the following changes have been made:
 
 ==3.0.2==
 
-Small change to the demo script; it was forcing the callback URL to 'http', now supports auto-determination of protocol to support http, https, etc.
+===Demo===
+
+*Miscellaneous*
+
+  * Changed demo scripts from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`.
 
 ==3.0.1==
 
 ===Core===
+
+*Miscellaneous*
 
   * Updated `_URL_AUTH` class constant, changing to the new 'authenticate' endpoint that allows for automatic authentication in certain circumstances. See this [https://developer.linkedin.com/blog/ LinkedIn Developer's Blog] [https://developer.linkedin.com/blog/oauth-now-authentication entry] for more details.
 
