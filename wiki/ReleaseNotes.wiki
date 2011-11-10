@@ -15,7 +15,7 @@ Debugging/trouble-shooting: We've added a couple of helpful methods which you ca
 
 Additionally, we've adding some internal data/parameter checking to hopefully catch bad inputs _before_ they are sent to the LinkedIn API.
 
-Full details can be found in the ChangeLog#Version_3.1.1
+Full details can be found in the [ChangeLog#Version_3.1.1]
 
 ==Version 3.1.0==
 
