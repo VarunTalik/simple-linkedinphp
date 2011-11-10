@@ -3,15 +3,24 @@
 
 = ReleaseNotes =
 
+==Version 3.2.0==
+
+New features: Added support for the Groups API related functionality, including the new methods:
+  * `createPost()`, `deletePost()`, `flagPost()`, `followPost()`, `group()`, `groupMemberships()`, `groupPost()`, `groupPostComments()`, `groupPosts()`, `groupSettings()`, `joinGroup()`, `leaveGroup()`, `likePost()`, `removeSuggestedGroup()`, `setGroupSettings()` and `suggestedGroups()`.
+
+We've also added an accompanying groups demo script to show-off some of the functionality.
+
+Full details can be found in the [ChangeLog#Version_3.2.0]
+
 ==Version 3.1.1==
 
 New features: Added new Job Posting API related functionality, including the new methods:
-  * postJob(), closeJob(), editJob() and renewJob()
+  * `postJob()`, `closeJob()`, `editJob()` and `renewJob()`.
 
 Please note that the Job Posting API is a _closed_ API... to use this functionality you must have a Job Posting account with LinkedIn.
 
 Debugging/trouble-shooting: We've added a couple of helpful methods which you can use to access some debugging info via:
-  * lastRequestHeader(), lastRequestUrl()
+  * `lastRequestHeader()`, `lastRequestUrl()`.
 
 Additionally, we've adding some internal data/parameter checking to hopefully catch bad inputs _before_ they are sent to the LinkedIn API.
 
@@ -20,11 +29,11 @@ Full details can be found in the [ChangeLog#Version_3.1.1]
 ==Version 3.1.0==
 
 Version 3.1.0 adds support for the Jobs and Company APIs, including:
-  * Company API-specific methods: company(), companyProducts(), followCompany(), followedCompanies(), searchCompanies(), suggestedCompanies(), unfollowCompany()
-  * Jobs API-specific methods: bookmarkJob(), bookmarkedJobs(), job(), searchJobs(), suggestedJobs(), unbookmarkJob()
+  * Company API-specific methods: `company()`, `companyProducts()`, `followCompany()`, `followedCompanies()`, `searchCompanies()`, `suggestedCompanies()`, `unfollowCompany()`.
+  * Jobs API-specific methods: `bookmarkJob()`, `bookmarkedJobs()`, `job()`, `searchJobs()`, `suggestedJobs()`, `unbookmarkJob()`.
 
 Additionally, the following changes have been made:
-  * The search() method, used to perform people searches, has been deprecated and replaced with searchPeople() in order to differentiate it from the company and job searches. The deprecated search() method will be removed in a future version of the library.
+  * The `search()` method, used to perform people searches, has been deprecated and replaced with `searchPeople()` in order to differentiate it from the company and job searches. The deprecated search() method will be removed in a future version of the library.
   * When a throttle limit is reached, the library will report which endpoint returned the throttle limit as part of the throttling exception's message.
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
 
@@ -32,7 +41,7 @@ Full details can be found in the [ChangeLog#Version_3.1.0]
 
 ==Version 3.0.2==
 
-Small change to the demo script; it was forcing the callback URL to 'http', now supports auto-determination of protocol to support http, https, etc.
+Small change to the demo script; it was forcing the callback URL to 'http', now supports auto-determination of protocol to support `http`, `https`, etc.
 
 Full details can be found in the [ChangeLog#Version_3.0.2]
 
@@ -61,7 +70,7 @@ $response = array(
   'success'  => Boolean indicating method success
 );
 }}}
-  * Fixed a bug in the share() method related to improper encoding of characters.
+  * Fixed a bug in the `share()` method related to improper encoding of characters.
 
 As always, have at the [http://simplelinkedin.fiftymission.net demo site] to see it in action. Let me know if you have any issues.
 
@@ -69,7 +78,7 @@ Full details can be found in the [ChangeLog#Version_3.0.0]
 
 ==Version 2.1.0==
 
-The latest version of the library makes changes to the $response variable from many calls, standardizing them across all methods. Where some methods returned boolean and others an array containing LinkedIn response and connection information, all methods now return an array containing the LinkedIn response, connection information, and a third element containing method/function success.
+The latest version of the library makes changes to the `$response` variable from many calls, standardizing them across all methods. Where some methods returned boolean and others an array containing LinkedIn response and connection information, all methods now return an array containing the LinkedIn response, connection information, and a third element containing method/function success.
 
 The format is as follows:
 
@@ -94,8 +103,8 @@ if($response['success']) {
 
 Updates to this version:
   
-  # Added ability to like, unlike, and comment on connection shares via new like(), unlike(), likes(), comment(), comments() methods;
-  # Per LinkedIn's new data features, implemented system to allow you to specify the format you would like the LinkedIn response in; XML (default), JSON or JSONP.  This is achieved via a call to LINKEDIN->set_response_format(format), where format can be set using the class constants (LINKEDIN::_RESPONSE_JSON, LINKEDIN::_RESPONSE_JSONP, LINKEDIN::_RESPONSE_XML).  The default format, matching the LinkedIn API is XML, and if you wish to use XML you do not need to worry about setting the response type.
+  # Added ability to like, unlike, and comment on connection shares via new `like()`, `unlike()`, `likes()`, `comment()`, `comments()` methods;
+  # Per LinkedIn's new data features, implemented system to allow you to specify the format you would like the LinkedIn response in; XML (default), JSON or JSONP.  This is achieved via a call to `LINKEDIN->set_response_format(format)`, where format can be set using the class constants (`LINKEDIN::_RESPONSE_JSON`, `LINKEDIN::_RESPONSE_JSONP`, `LINKEDIN::_RESPONSE_XML`).  The default format, matching the LinkedIn API is XML, and if you wish to use XML you do not need to worry about setting the response type.
   # Increased method parameter checking and error handling capabilities.
   # Library now verifies that the conflicting PECL OAuth extension is not installed before instantiating.
 
@@ -105,36 +114,36 @@ Full details can be found in the [ChangeLog#Version_2.1.0]
 
 Two changes:
 
-  # Modified send_request() to also return the original OAuth request that the library makes.  This can be helpful for debugging API issues, as the response returned now includes:
+  # Modified `send_request()` to also return the original OAuth request that the library makes.  This can be helpful for debugging API issues, as the response returned now includes:
     * The original OAuth request;
     * The response from LinkedIn, and;
     * The HTTP connection information.
-  # Added a second set on class constants to store 'development' stage application keys.  Setting the new class constant API_DEV_MODE to TRUE will make use of these 'development' keys.  Useful for keeping track of what mode/key-pair your application is using, and saves you having to keep two sets of keys in disparate places.
+  # Added a second set on class constants to store 'development' stage application keys.  Setting the new class constant `_API_DEV_MODE` to `TRUE` will make use of these 'development' keys.  Useful for keeping track of what mode/key-pair your application is using, and saves you having to keep two sets of keys in disparate places.
 
 Full details can be found in the [ChangeLog#Version_2.0.1]
 
 ==Version 2.0.0==
 
-It is recommended that you test your code when upgrading from a previous version of the library as version 2+ changes many method calls and replaces deprecated API methods, such as update_status(), with their new equivalents.
+It is recommended that you test your code when upgrading from a previous version of the library as version 2+ changes many method calls and replaces deprecated API methods, such as `update_status()`, with their new equivalents.
 
   * Overhauled the library, implemented new constructor, method parameters.
-  * Added search() method that uses the new People Search API.
-  * Added invite() to send out network invitations by both email and LinkedIn ID.
-  * Added share() method that uses the new Share API, allowing both sharing and re-sharing.
-  * Added statistics() method that grabs basic user stats from LinkedIn.
-  * Added static is_id() method to check format of LinkedIn ID.
-  * Integrated is_throttled() into every call to LinkedIn, raises an exception if application request has been throttled.
+  * Added `search()` method that uses the new People Search API.
+  * Added `invite()` to send out network invitations by both email and LinkedIn ID.
+  * Added `share()` method that uses the new Share API, allowing both sharing and re-sharing.
+  * Added `statistics()` method that grabs basic user stats from LinkedIn.
+  * Added `static is_id()` method to check format of LinkedIn ID.
+  * Integrated `is_throttled()` into every call to LinkedIn, raises an exception if application request has been throttled.
 
 Full details can be found in the [ChangeLog#Version_2.0.0]
 
 ==Version 1.2.0==
 
-  * Added basic Connections/Messaging API functionality via added connections() and connection_message() functions.
+  * Added basic Connections/Messaging API functionality via added `connections()` and `connection_message()` functions.
 
 Full details can be found in the [ChangeLog#Version_1.2.0]
 
 ==Version 1.1.1==
 
-  * Added a static is_throttled() function that will check the LinkedIn response and return TRUE/FALSE depending on the throttling state.
+  * Added a static `is_throttled()` function that will check the LinkedIn response and return TRUE/FALSE depending on the throttling state.
 
 Full details can be found in the [ChangeLog#Version_1.1.1]
