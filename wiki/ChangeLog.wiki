@@ -37,7 +37,9 @@ Small change to the demo script; it was forcing the callback URL to 'http', now 
 
 ==3.0.1==
 
-Just a simple change to the authorization workflow, changing the authorization end-point to the 'authorize' endpoint, as detailed on the [http://developer.linkedin.com/community/apis/blog/2010/04/29/oauth--now-for-authentication LinkedIn Developer's Blog].
+===Core===
+
+  * Updated `_URL_AUTH` class constant, changing to the new 'authenticate' endpoint that allows for automatic authentication in certain circumstances. See this [https://developer.linkedin.com/blog/ LinkedIn Developer's Blog] [https://developer.linkedin.com/blog/oauth-now-authentication entry] for more details.
 
 ==3.0.0==
 
