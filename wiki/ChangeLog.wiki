@@ -22,13 +22,32 @@
 
 ==Version 3.1.0==
 
-Version 3.1.0 adds support for the Jobs and Company APIs, including:
-  * Company API-specific methods: company(), companyProducts(), followCompany(), followedCompanies(), searchCompanies(), suggestedCompanies(), unfollowCompany()
-  * Jobs API-specific methods: bookmarkJob(), bookmarkedJobs(), job(), searchJobs(), suggestedJobs(), unbookmarkJob()
+===Core===
 
-Additionally, the following changes have been made:
-  * The search() method, used to perform people searches, has been deprecated and replaced with searchPeople() in order to differentiate it from the company and job searches. The deprecated search() method will be removed in a future version of the library.
-  * When a throttle limit is reached, the library will report which endpoint returned the throttle limit as part of the throttling exception's message.
+*New Methods*
+
+  * Added `bookmarkJob()` method, used to bookmark an existing job.
+  * Added `bookmarkedJobs()` method, used to retrieve a user's bookmarked jobs.
+  * Added `company()` method, used to retrieve detailed information about a specific company.
+  * Added `companyProducts()` method, used to retrieve the products of a specific company.
+  * Added `followCompany()` method, used to follow a company.
+  * Added `followedCompanies()` method, used to retrieve a user's followed companies.
+  * Added `job()` method, used to retrieve detailed job information.
+  * Added `searchCompanies()` method, used to search companies on LinkedIn.
+  * Added `searchJobs()` method, used to search jobs on LinkedIn.
+  * Added `searchPeople()` method, used to search people on LinkedIn.
+  * Added `suggestedCompanies()` method, used to retrieve LinkedIn's suggested companies for the user.
+  * Added `suggestedJobs()` method, used to retrieve LinkedIn's suggested jobs for the user.
+  * Added `unbookmarkJob()` method, used to unbookmark an existing job.
+  * Added `unfollowCompany()` method, used to unfollow a company.
+
+*Changes*
+
+  * Deprecated `search()` method, replaced by `searchPeople()`. The deprecated search() method will be removed in a future version of the library.
+  * Protected `fetch()` method modified, with throttle-triggered exception now reporting the endpoint that has triggered a throttle limit.
+
+===Demo===
+
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
 
 ==Version 3.0.2==
