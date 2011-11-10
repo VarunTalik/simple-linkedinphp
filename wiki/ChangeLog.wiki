@@ -5,15 +5,20 @@
 
 ==3.1.1==
 
-New functionality: Version 3.1.1 adds Job Posting support via the new methods:
-  * postJob(), closeJob(), editJob() and renewJob()
+===Core===
 
-Please note that the Job Posting API is a _closed_ API... to use this functionality you must have a Job Posting account with LinkedIn.
+*New Methods*
 
-Debugging/trouble-shooting: We've added a couple of helpful methods which you can use to access some debugging info via:
-  * lastRequestHeader(), lastRequestUrl()
+  * Added `closeJob()` method, used to close jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API.
+  * Added `editJob()` method, used to edit jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API.
+  * Added `lastRequestHeader()` debugging/informational method, used to retrieve the last header passed by the class to LinkedIn.
+  * Added `lastRequestUrl()` debugging/informational method, used to retrieve the last URL used by the class to communicate with LinkedIn.
+  * Added `postJob()` method, used to post jobs - *Note* that this can only be used with the private Job Posting API.
+  * Added `renewJob()` method, used to renew jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API. 
 
-Additionally, we've adding some internal data/parameter checking to hopefully catch bad inputs _before_ they are sent to the LinkedIn API.
+*Miscellaneous*
+
+  * Added internal data/parameter checking to all methods.
 
 ==3.1.0==
 
