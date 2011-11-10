@@ -9,12 +9,12 @@
 
 *New Methods*
 
-  * Added `closeJob()` method, used to close jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API.
-  * Added `editJob()` method, used to edit jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API.
+  * Added `closeJob()` method, used to close jobs that the user has previously posted - this can only be used with the private Job Posting API.
+  * Added `editJob()` method, used to edit jobs that the user has previously posted - this can only be used with the private Job Posting API.
   * Added `lastRequestHeader()` debugging/informational method, used to retrieve the last header passed by the class to LinkedIn.
   * Added `lastRequestUrl()` debugging/informational method, used to retrieve the last URL used by the class to communicate with LinkedIn.
-  * Added `postJob()` method, used to post jobs - *Note* that this can only be used with the private Job Posting API.
-  * Added `renewJob()` method, used to renew jobs that the user has previously posted - *Note* that this can only be used with the private Job Posting API. 
+  * Added `postJob()` method, used to post jobs - this can only be used with the private Job Posting API.
+  * Added `renewJob()` method, used to renew jobs that the user has previously posted - this can only be used with the private Job Posting API. 
 
 *Miscellaneous*
 
@@ -118,8 +118,17 @@ It is recommended that you test your code when upgrading from a previous version
 
 ==1.2.0==
 
-  * Added basic Connections/Messaging API functionality via added connections() and connection_message() functions.
+===Core===
+
+*New Methods*
+
+  * Added `connections()` method, used to retrieve LinkedIn user connections.
+  * Added `connection_message()` method, used to send messages from the current user to their connections.
 
 ==1.1.1==
 
-  * Added a static is_throttled() function that will check the LinkedIn response and return TRUE/FALSE depending on the throttling state.
+===Core===
+
+*New Methods*
+
+  * Added static `is_throttled()` method, used to check the LinkedIn response and return TRUE/FALSE depending on the throttling state.
