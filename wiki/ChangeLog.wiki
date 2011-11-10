@@ -133,15 +133,23 @@ Two changes:
 
 ==Version 2.0.0==
 
-It is recommended that you test your code when upgrading from a previous version of the library as version 2+ changes many method calls and replaces deprecated API methods, such as update_status(), with their new equivalents.
+===Core===
 
-  * Overhauled the library, implemented new constructor, method parameters.
-  * Added search() method that uses the new People Search API.
-  * Added invite() to send out network invitations by both email and LinkedIn ID.
-  * Added share() method that uses the new Share API, allowing both sharing and re-sharing.
-  * Added statistics() method that grabs basic user stats from LinkedIn.
-  * Added static is_id() method to check format of LinkedIn ID.
-  * Integrated is_throttled() into every call to LinkedIn, raises an exception if application request has been throttled.
+*New Methods*
+
+  * Added `invite()` method, used to send out network invitations by both email and LinkedIn member token.
+  * Added static `is_id()` method, used to check format of a given LinkedIn member token.
+  * Added `search()` method, used to search people on LinkedIn.
+  * Added `share()` method, used to share and re-share content.
+  * Added `statistics()` method, used to retrieve the current user's network graph.
+
+*Changes*
+
+  * Refactored code, implemented new constructor with additional parameters.
+
+*Miscellaneous*
+
+  * Integrated `is_throttled()` method into every call to LinkedIn, raises an exception if application request has been throttled.
 
 ==Version 1.2.0==
 
