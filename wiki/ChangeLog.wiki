@@ -3,12 +3,42 @@
 
 = ChangeLog =
 
+==Version 3.2.0==
+
+===Core===
+
+*New*
+
+  * Added `createPost()` method, used to create a post.
+  * Added `deletePost()` method, used to delete a previous post by the user.
+  * Added `flagPost()` method, used to flag a specific post.
+  * Added `followPost()` method, used to follow a specific post.
+  * Added `group()` method, used to retrieve detailed information about a specific group.
+  * Added `groupMemberships()` method, used to retrieve a user's group memberships.
+  * Added `groupPost()` method, used to retrieve detailed information about a specific post.
+  * Added `groupPostComments()` method, used to retrieve all the comments for a post.
+  * Added `groupPosts()` method, used to retrieve all the posts in a group.
+  * Added `groupSettings()` method, used to retrieve the settings for a group.
+  * Added `joinGroup()` method, used to join a group.
+  * Added `leaveGroup()` method, used to leave a group the user is a member of.
+  * Added `likePost()` method, used to 'like' a post.
+  * Added `removeSuggestedGroup()` method, used to remove a group fro the suggested group list from LinkedIn.
+  * Added `setGroupSettings()` method, used to change the settings of a group the user administrates.
+  * Added `suggestedGroups()` method, used to retrieve LinkedIn's suggested groups for the user.
+
+===Demo===
+
+*New*
+
+  * Added groups.php script, demonstrating new groups related methods.
+
 ==Version 3.1.1==
 
 ===Core===
 
 *New*
 
+  * Added private `checkResponse()` method, used internally to centralize verification of the response from LinkedIn. 
   * Added `closeJob()` method, used to close jobs that the user has previously posted - this can only be used with the private Job Posting API.
   * Added `editJob()` method, used to edit jobs that the user has previously posted - this can only be used with the private Job Posting API.
   * Added `lastRequestHeader()` debugging/informational method, used to retrieve the last header passed by the class to LinkedIn.
@@ -19,6 +49,12 @@
 *Miscellaneous*
 
   * Added internal data/parameter checking to all methods.
+
+===Demo===
+
+*New*
+
+  * Added jobsPosting.php script, demonstrating new jobs posting related methods.
 
 ==Version 3.1.0==
 
@@ -47,6 +83,8 @@
   * Protected `fetch()` method modified, with throttle-triggered exception now reporting the endpoint that has triggered a throttle limit.
 
 ===Demo===
+
+*Changes*
 
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
 
