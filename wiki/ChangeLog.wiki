@@ -86,7 +86,7 @@
 
 *Changes*
 
-  * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
+  * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports. See issue 6 for details.
 
 ==Version 3.0.2==
 
