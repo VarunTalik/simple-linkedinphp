@@ -145,7 +145,7 @@ $response = array(
   * Added `_RESPONSE_JSON` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSON.
   * Added `_RESPONSE_JSONP` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSONP.
   * Added `_RESPONSE_XML` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to XML. This is the default setting. 
-  * Added existence check for PECL OAuth extension - class will throw an exception if it is found, as it conflicts with the required stand-alone OAuth library required by the class.
+  * Added existence check for PECL OAuth extension - class will throw an exception if it is found, as it conflicts with the required stand-alone OAuth library required by the class. See issue 1 for more details.
 
 *Changes*
 
