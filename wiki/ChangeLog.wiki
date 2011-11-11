@@ -22,6 +22,7 @@
   * Added `joinGroup()` method, used to join a group.
   * Added `leaveGroup()` method, used to leave a group the user is a member of.
   * Added `likePost()` method, used to 'like' a post.
+  * Added `raw()` method, allowing for manual calls to the API for unimplemented functionality to be accessed.
   * Added `removeSuggestedGroup()` method, used to remove a group fro the suggested group list from LinkedIn.
   * Added `setGroupSettings()` method, used to change the settings of a group the user administrates.
   * Added `suggestedGroups()` method, used to retrieve LinkedIn's suggested groups for the user.
