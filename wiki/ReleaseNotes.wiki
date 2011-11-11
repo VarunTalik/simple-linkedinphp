@@ -8,6 +8,8 @@
 New features: Added support for the Groups API related functionality, including the new methods:
   * `createPost()`, `deletePost()`, `flagPost()`, `followPost()`, `group()`, `groupMemberships()`, `groupPost()`, `groupPostComments()`, `groupPosts()`, `groupSettings()`, `joinGroup()`, `leaveGroup()`, `likePost()`, `removeSuggestedGroup()`, `setGroupSettings()` and `suggestedGroups()`.
 
+Added a new `raw()` method, allowing the user to make calls directly to the API end-points, allowing for support for API functionality that has not been included in the class.
+
 We've also added an accompanying groups demo script to show-off some of the functionality.
 
 Full details can be found in the [ChangeLog#Version_3.2.0]
