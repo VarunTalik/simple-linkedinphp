@@ -91,7 +91,7 @@
   * Added company.php script, demonstrating new company related methods.
   * Added new jobs.php script, demonstrating new jobs related methods.
   * Added new content.php script, moving existing content related functionality from the base demo.php script.
-  * Added new network.php script, moving existing networkrelated functionality from the base demo.php script.
+  * Added new network.php script, moving existing network related functionality from the base demo.php script.
 
 *Changes*
 
