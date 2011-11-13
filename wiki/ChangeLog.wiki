@@ -86,6 +86,13 @@
 
 ===Demo===
 
+*New*
+
+  * Added company.php script, demonstrating new company related methods.
+  * Added new jobs.php script, demonstrating new jobs related methods.
+  * Added new content.php script, moving existing content related functionality from the base demo.php script.
+  * Added new network.php script, moving existing networkrelated functionality from the base demo.php script.
+
 *Changes*
 
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports. See issue 6 for details.
@@ -97,7 +104,7 @@
 
 *Miscellaneous*
 
-  * Changed demo scripts from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`. See issue 4 for details.
+  * Changed demo script from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`. See issue 4 for details.
 
 ==Version 3.0.1==
 
