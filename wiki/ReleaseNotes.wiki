@@ -44,6 +44,7 @@ Version 3.1.0 adds support for the Jobs and Company APIs, including:
   * Jobs API-specific methods: `bookmarkJob()`, `bookmarkedJobs()`, `job()`, `searchJobs()`, `suggestedJobs()`, `unbookmarkJob()`.
 
 Additionally, the following changes have been made:
+  * Broke the functionality of the existing demo script into grouped pages, including new demo scripts for the above company and jobs related functionality.
   * The `search()` method, used to perform people searches, has been deprecated and replaced with `searchPeople()` in order to differentiate it from the company and job searches. The deprecated search() method will be removed in a future version of the library.
   * When a throttle limit is reached, the library will report which endpoint returned the throttle limit as part of the throttling exception's message.
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
