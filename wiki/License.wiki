@@ -1,4 +1,4 @@
-#summary Library license information.
+#summary Simple-LinkedIn library license information.
 #labels Featured,Phase-Implementation
 
 = License =
