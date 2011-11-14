@@ -33,7 +33,7 @@ As the library includes a set of demonstration scripts, once you have dropped th
 {{{
 require_once('linkedin_X.X.X.class.php');
 }}} 
-  # Now, insert your LinkedIn application key pair into the $API_CONFIG variable:
+  # Now, insert your LinkedIn application key pair into the $API_CONFIG configuration array:
 {{{
 $API_CONFIG = array(
   'appKey'       => '<your application key here>',
@@ -44,3 +44,9 @@ $API_CONFIG = array(
   # Finally, point your browser at the demo scripts and authorize yourself against LinkedIn with your new application. Once authorized, the demo scripts will become functional, and the install will have been validated.
 
 ==Including Simple-LinkedIn in your Project==
+
+Now that you've signed up for application keys, and downloaded, installed and verified the library, you can now start building your LinkedIn API application.
+
+Following the example of the demo scripts, point your PHP file/class at the Simple-LinkedIn class file. Then, instantiate the object by using the same configuration array from the demo scripts that contains your LinkedIn API key pair.
+
+The final step is to authorize the viewer - the demo scripts contain an example of how to achieve this, but in essence you want to store the user's access token locally so that you can make repeated calls on their behalf to the LinkedIn platform.
