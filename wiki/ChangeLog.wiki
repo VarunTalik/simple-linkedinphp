@@ -1,7 +1,7 @@
 #summary Changes (by version) to the SimpleLinkedIn PHP library.
 #labels Phase-Implementation,Featured
 
-= ChangeLog =
+=ChangeLog=
 
 ==Version 3.2.0==
 
