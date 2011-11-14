@@ -24,12 +24,23 @@ By default, the Simple-LinkedIn class file will look for the OAuth class in the 
 require_once('OAuth.php');
 }}} 
 
-===Sign-up for a LinkedIn Application Key===
-
-
-
 ===Verifying the Install===
 
 As the library includes a set of demonstration scripts, once you have dropped the files on your server you can then use them to verify that communications are working.
+
+  # From the Simple-LinkedIn .zip file, unzip the demonstration files to a location on your web server that is accessible via a browser;
+  # Modify each of the demonstration files, first changing the `require_once()` line, pointing them at the recently installed Simple-LinkedIn class:
+{{{
+require_once('linkedin_X.X.X.class.php');
+}}} 
+  # Now, insert your LinkedIn application key pair into the $API_CONFIG variable:
+{{{
+$API_CONFIG = array(
+  'appKey'       => '<your application key here>',
+  'appSecret'    => '<your application secret here>',
+  'callbackUrl'  => NULL 
+);
+}}}
+  # Finally, point your browser at the demo scripts and authorize yourself against LinkedIn with your new application. Once authorized, the demo scripts will become functional, and the install will have been validated.
 
 ==Including Simple-LinkedIn in your Project==
