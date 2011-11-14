@@ -244,31 +244,42 @@ class LinkedIn {
 	 * Used to check whether a response LinkedIn object has the required http_code or not and 
 	 * returns an appropriate LinkedIn object.
 	 * 
-	 * @param int $http_code_required
-	 * 		The required http response from LinkedIn.
+	 * @param var $http_code_required
+	 * 		The required http response from LinkedIn, passed in either as an integer, 
+	 * 		or an array of integers representing the expected values.	 
 	 * @param arr $response 
 	 *    An array containing a LinkedIn response.
 	 * 
-	 * @return arr
-	 * 	  An array containing a LinkedIn response with appropriate values
+	 * @return boolean
+	 * 	  TRUE or FALSE depending on if the passed LinkedIn response matches the expected response.
 	 */
 	private function checkResponse($http_code_required, $response) {
 		// check passed data
-    if(!is_array($response)) {
+    if(is_array($http_code_required)) {
+		  array_walk($http_code_required, function($value, $key) {
+        if(!is_int($value)) {
+    			throw new LinkedInException('LinkedIn->checkResponse(): $http_code_required must be an integer or an array of integer values');
+    		}
+      });
+		} else {
+		  if(!is_int($http_code_required)) {
+  			throw new LinkedInException('LinkedIn->checkResponse(): $http_code_required must be an integer or an array of integer values');
+  		} else {
+  		  $http_code_required = array($http_code_required);
+  		}
+		}
+		if(!is_array($response)) {
 			throw new LinkedInException('LinkedIn->checkResponse(): $response must be an array');
-		}
-		if(!is_int($http_code_required)) {
-			throw new LinkedInException('LinkedIn->checkResponse(): $http_code_required must be an integer value');
-		}
+		}		
 		
-		// check the response
-		if($response['info']['http_code'] == $http_code_required) {
-		  //request successful
+		// check for a match
+		if(in_array($response['info']['http_code'], $http_code_required)) {
+		  // response found
 		  $response['success'] = TRUE;
 		} else {
-			//request failed
+			// response not found
 			$response['success'] = FALSE;
-			$response['error']   = 'HTTP response from LinkedIn end-point was not code ' . $http_code_required;
+			$response['error']   = 'HTTP response from LinkedIn end-point was not code ' . implode(', ', $http_code_required);
 		}
 		return $response;
 	}
@@ -523,7 +534,7 @@ class LinkedIn {
 			throw new LinkedInException('LinkedIn->createPost(): bad data passed, $summary must be of type string.');
 		}
 		
-		//Constructing the xml.
+		// construct the XML
 		$data = '<?xml version="1.0" encoding="UTF-8"?>
     				 <post>
     					 <title>'. $title . '</title>
@@ -1377,10 +1388,10 @@ class LinkedIn {
 		$response = $this->fetch('PUT', $query, $data);
 		
 		/**
-	   * Check for successful request (a 201 response from LinkedIn server) 
+	   * Check for successful request (a 200 or 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->checkResponse(array(200, 201), $response);
 	}
 	
 	/**
@@ -1687,7 +1698,20 @@ class LinkedIn {
 	 * 		API response to determine  if the raw call was successful.
 	 */
 	public function raw($method, $url, $body = NULL) {
-	  // construct and send the request
+	  if(!is_string($method)) {
+	    // bad data passed
+		  throw new LinkedInException('LinkedIn->raw(): bad data passed, $method must be of string value.');
+	  }
+	  if(!is_string($url)) {
+	    // bad data passed
+		  throw new LinkedInException('LinkedIn->raw(): bad data passed, $url must be of string value.');
+	  }
+	  if(!is_null($body) && !is_string($url)) {
+	    // bad data passed
+		  throw new LinkedInException('LinkedIn->raw(): bad data passed, $body must be of string value.');
+	  }
+    
+    // construct and send the request
 	  $query = self::_URL_API . '/v1' . trim($url);
 	  return $this->fetch($method, $query, $body);
 	}

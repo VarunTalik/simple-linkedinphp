@@ -601,6 +601,7 @@ try {
                 }
                 ?>
   	            <div style="margin: 0.5em 0 1em 2em;">
+                  <a href="<?php echo $_SERVER['PHP_SELF'];?>?<?php echo LINKEDIN::_GET_TYPE;?>=joinGroup&amp;nGroupId=<?php echo $gid;?>#groupsSuggested">Join</a>
                   <a href="<?php echo $_SERVER['PHP_SELF'];?>?<?php echo LINKEDIN::_GET_TYPE;?>=removeSuggestedGroup&amp;nGroupId=<?php echo $gid;?>#groupsSuggested">Remove</a>
     	       		</div>
     	       		<?php
