@@ -47,6 +47,15 @@ $API_CONFIG = array(
 
 Now that you've signed up for application keys, and downloaded, installed and verified the library, you can now start building your LinkedIn API application.
 
-Following the example of the demo scripts, point your PHP file/class at the Simple-LinkedIn class file. Then, instantiate the object by using the same configuration array from the demo scripts that contains your LinkedIn API key pair.
+Following the example of the demo scripts, include the Simple-LinkedIn class file in your PHP file/class. Then, instantiate the LinkedIn object by using the same configuration array from the demo scripts that contains your LinkedIn API key pair:
+
+{{{
+$API_CONFIG = array(
+  'appKey'       => '<your application key here>',
+  'appSecret'    => '<your application secret here>',
+  'callbackUrl'  => NULL 
+);
+$linkedin = new LinkedIn($API_CONFIG);
+}}}
 
 The final step is to authorize the viewer - the demo scripts contain an example of how to achieve this, but in essence you want to store the user's access token locally so that you can make repeated calls on their behalf to the LinkedIn platform.
