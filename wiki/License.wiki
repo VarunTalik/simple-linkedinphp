@@ -1,7 +1,7 @@
 #summary Simple-LinkedIn library license information.
 #labels Featured,Phase-Implementation
 
-= License =
+=License=
 
 The Simple-LinkedIn library is released under the MIT License, contained in full at the link below:
 
