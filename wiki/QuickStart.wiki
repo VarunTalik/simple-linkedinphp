@@ -1,0 +1,12 @@
+#summary A quick start guide to the Simple-LinkedIn class.
+#labels Featured,Phase-Deploy
+
+= QuickStart =
+
+Getting LinkedIn connectivity up and running shouldn't take more than a few minutes.
+
+= Downloading the Required Files =
+
+  * Download the latest version of the script, demo scripts and support image from the '[http://code.google.com/p/simple-linkedinphp/downloads/list Downloads]' page;
+  * Download the stand-alone [http://oauth.googlecode.com/svn/code/php/ OAuth library from Google Code];
+  * Unzip the Simple-LinkedIn files onto your web server.
