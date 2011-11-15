@@ -1,11 +1,11 @@
 #summary Changes (by version) to the SimpleLinkedIn PHP library.
 #labels Phase-Implementation,Featured
 
-<p align="right"><g:plusone size="medium"></g:plusone></p>
-
 =Change Log=
 
 <wiki:toc max_depth="2" />
+
+<p align="right"><g:plusone size="medium"></g:plusone></p>
 
 ----
 
