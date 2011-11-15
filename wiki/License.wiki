@@ -3,6 +3,9 @@
 
 =License=
 
+<p align="right"><g:plusone size="medium"></g:plusone></p>
+
+----
 
 The Simple-!LinkedIn library is released under the MIT License, contained in full at the link below:
 
