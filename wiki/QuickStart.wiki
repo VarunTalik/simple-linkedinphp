@@ -1,8 +1,8 @@
 #summary A quick start guide to the Simple-LinkedIn class.
 #labels Featured,Phase-Deploy
 
-<table><tr>
-<td>=Quick Start Guide=</td>
+<table width="100%"><tr>
+<td><h1>Quick Start Guide</h1></td>
 <td align="right"><g:plusone size="medium"></g:plusone></td>
 </tr></table>
 
