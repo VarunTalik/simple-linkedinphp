@@ -1,13 +1,14 @@
 #summary A quick start guide to the Simple-LinkedIn class.
 #labels Featured,Phase-Deploy
 
-=Quick Start Guide=
+<table><tr>
+<td>=Quick Start Guide=</td>
+<td align="right"><g:plusone size="medium"></g:plusone></td>
+</tr></table>
 
 This brief guide should have LinkedIn connectivity up and running in a few short minutes.
 
 <wiki:toc max_depth="3" />
-
-<p align="right"><g:plusone size="medium"></g:plusone></p>
 
 ----
 
