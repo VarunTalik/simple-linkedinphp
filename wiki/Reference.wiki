@@ -12,6 +12,90 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Profile API==
 
-<p align="right">[QuickStart#Reference_(by_LinkedIn_API) ^ Top]</p>
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Connections API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==People Search API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Share API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Network Updates API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Statistics API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Network Updates API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Invitation API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Messaging API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Invitation API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Groups API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Company API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Company Search API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Job API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Job Search API==
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
