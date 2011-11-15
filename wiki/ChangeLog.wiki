@@ -9,11 +9,11 @@
 
 ----
 
-=Version 3.2.0=
+==Version 3.2.0==
 
-==Core==
+===Core===
 
-===New===
+====New====
 
   * Added `createPost()` method, used to create a post.
   * Added `deletePost()` method, used to delete a previous post by the user.
