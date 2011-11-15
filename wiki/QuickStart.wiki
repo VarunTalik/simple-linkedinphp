@@ -1,9 +1,15 @@
 #summary A quick start guide to the Simple-LinkedIn class.
 #labels Featured,Phase-Deploy
 
-=QuickStart=
+=Quick Start Guide=
 
 This brief guide should have LinkedIn connectivity up and running in a few short minutes.
+
+<wiki:toc max_depth="2" />
+
+<p align="right"><g:plusone size="medium"></g:plusone></p>
+
+----
 
 ==Sign-up for a LinkedIn Application Key==
 
