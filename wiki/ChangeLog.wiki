@@ -1,11 +1,9 @@
 #summary Changes (by version) to the SimpleLinkedIn PHP library.
 #labels Phase-Implementation,Featured
 
-=ChangeLog=
-
 <wiki:toc max_depth="1" />
 
-==Version 3.2.0==
+=Version 3.2.0=
 
 ===Core===
 
