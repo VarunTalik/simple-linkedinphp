@@ -29,9 +29,9 @@
   * Added `leaveGroup()` method, used to leave a group the user is a member of.
   * Added `likePost()` method, used to 'like' a post.
   * Added `raw()` method, allowing for manual calls to the API for unimplemented functionality to be accessed.
-  * Added `removeSuggestedGroup()` method, used to remove a group fro the suggested group list from LinkedIn.
+  * Added `removeSuggestedGroup()` method, used to remove a group fro the suggested group list from !LinkedIn.
   * Added `setGroupSettings()` method, used to change the settings of a group the user administrates.
-  * Added `suggestedGroups()` method, used to retrieve LinkedIn's suggested groups for the user.
+  * Added `suggestedGroups()` method, used to retrieve !LinkedIn's suggested groups for the user.
 
 ===Demo===
 
@@ -50,11 +50,11 @@
 
 ====New====
 
-  * Added private `checkResponse()` method, used internally to centralize verification of the response from LinkedIn. 
+  * Added private `checkResponse()` method, used internally to centralize verification of the response from !LinkedIn. 
   * Added `closeJob()` method, used to close jobs that the user has previously posted - this can only be used with the private Job Posting API.
   * Added `editJob()` method, used to edit jobs that the user has previously posted - this can only be used with the private Job Posting API.
-  * Added `lastRequestHeader()` debugging/informational method, used to retrieve the last header passed by the class to LinkedIn.
-  * Added `lastRequestUrl()` debugging/informational method, used to retrieve the last URL used by the class to communicate with LinkedIn.
+  * Added `lastRequestHeader()` debugging/informational method, used to retrieve the last header passed by the class to !LinkedIn.
+  * Added `lastRequestUrl()` debugging/informational method, used to retrieve the last URL used by the class to communicate with !LinkedIn.
   * Added `postJob()` method, used to post jobs - this can only be used with the private Job Posting API.
   * Added `renewJob()` method, used to renew jobs that the user has previously posted - this can only be used with the private Job Posting API. 
 
@@ -85,11 +85,11 @@
   * Added `followCompany()` method, used to follow a company.
   * Added `followedCompanies()` method, used to retrieve a user's followed companies.
   * Added `job()` method, used to retrieve detailed job information.
-  * Added `searchCompanies()` method, used to search companies on LinkedIn.
-  * Added `searchJobs()` method, used to search jobs on LinkedIn.
-  * Added `searchPeople()` method, used to search people on LinkedIn.
-  * Added `suggestedCompanies()` method, used to retrieve LinkedIn's suggested companies for the user.
-  * Added `suggestedJobs()` method, used to retrieve LinkedIn's suggested jobs for the user.
+  * Added `searchCompanies()` method, used to search companies on !LinkedIn.
+  * Added `searchJobs()` method, used to search jobs on !LinkedIn.
+  * Added `searchPeople()` method, used to search people on !LinkedIn.
+  * Added `suggestedCompanies()` method, used to retrieve !LinkedIn's suggested companies for the user.
+  * Added `suggestedJobs()` method, used to retrieve !LinkedIn's suggested jobs for the user.
   * Added `unbookmarkJob()` method, used to unbookmark an existing job.
   * Added `unfollowCompany()` method, used to unfollow a company.
 
@@ -180,11 +180,11 @@ $response = array(
   * Added `comments()` method, used to retrieve all the comments on a given network share.
   * Added `like()` method, used to like a network share.
   * Added `likes()` method, used to retrieve the likes on a given network share.
-  * Added `set_response_format()` method, used to set the data format of the LinkedIn response.
+  * Added `set_response_format()` method, used to set the data format of the !LinkedIn response.
   * Added `unlike()` method, used to unlike a previously liked network share.
-  * Added `_RESPONSE_JSON` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSON.
-  * Added `_RESPONSE_JSONP` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to JSONP.
-  * Added `_RESPONSE_XML` class constant, used in conjunction with `set_response_format()` to set the data response from LinkedIn to XML. This is the default setting. 
+  * Added `_RESPONSE_JSON` class constant, used in conjunction with `set_response_format()` to set the data response from !LinkedIn to JSON.
+  * Added `_RESPONSE_JSONP` class constant, used in conjunction with `set_response_format()` to set the data response from !LinkedIn to JSONP.
+  * Added `_RESPONSE_XML` class constant, used in conjunction with `set_response_format()` to set the data response from !LinkedIn to XML. This is the default setting. 
   * Added existence check for PECL OAuth extension - class will throw an exception if it is found, as it conflicts with the required stand-alone OAuth library required by the class. See issue 1 for more details.
 
 ====Changes====
@@ -219,7 +219,7 @@ $response = array(
 
 ====Changes====
 
-  * Modified `send_request()` method to return the original OAuth request that the class sends to LinkedIn.
+  * Modified `send_request()` method to return the original OAuth request that the class sends to !LinkedIn.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
 
@@ -231,9 +231,9 @@ $response = array(
 
 ====New====
 
-  * Added `invite()` method, used to send out network invitations by both email and LinkedIn member token.
-  * Added static `is_id()` method, used to check format of a given LinkedIn member token.
-  * Added `search()` method, used to search people on LinkedIn.
+  * Added `invite()` method, used to send out network invitations by both email and !LinkedIn member token.
+  * Added static `is_id()` method, used to check format of a given !LinkedIn member token.
+  * Added `search()` method, used to search people on !LinkedIn.
   * Added `share()` method, used to share and re-share content.
   * Added `statistics()` method, used to retrieve the current user's network graph.
 
@@ -243,7 +243,7 @@ $response = array(
 
 ====Miscellaneous====
 
-  * Integrated `is_throttled()` method into every call to LinkedIn, raises an exception if application request has been throttled.
+  * Integrated `is_throttled()` method into every call to !LinkedIn, raises an exception if application request has been throttled.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
 
@@ -255,7 +255,7 @@ $response = array(
 
 ====New====
 
-  * Added `connections()` method, used to retrieve LinkedIn user connections.
+  * Added `connections()` method, used to retrieve !LinkedIn user connections.
   * Added `connection_message()` method, used to send messages from the current user to their connections.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
@@ -268,6 +268,6 @@ $response = array(
 
 ====New====
 
-  * Added static `is_throttled()` method, used to check the LinkedIn response and return TRUE/FALSE depending on the throttling state.\
+  * Added static `is_throttled()` method, used to check the !LinkedIn response and return TRUE/FALSE depending on the throttling state.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
