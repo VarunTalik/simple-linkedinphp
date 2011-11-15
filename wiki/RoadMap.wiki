@@ -5,9 +5,18 @@
 
 A non-binding list of future changes, thoughts, etc about the direction of the Simple-!LinkedIn class.
 
-= Details =
+==Upcoming Changes==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Changes and additions that are planned for inclusion in a future version of the library:
+
+  * Add `deleteComment()` method (missed adding this functionality with the other Groups API methods added in [ReleaseNotes#Version_3.2.0 version 3.2.0]).
+  * Remove all deprecated methods/parameters (v4.0.0)
+  * Ability for Simple-!LinkedIn to co-exist with both the stand-alone OAth class, as well as the PECL OAuth extension, depending on which is installed (v4.0.0).
+
+==To Do==
+
+Nothing at this time.
+
+==Wish List==
+
+  * Inclusion of the Simple-!LinkedIn library as a PECL extension.
