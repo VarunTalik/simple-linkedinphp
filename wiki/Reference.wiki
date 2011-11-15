@@ -96,22 +96,49 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Groups API==
 
-  * `public function createPost($gid, $title, $summary = '')`
-  * `public function deletePost($pid)`
-  * `public function flagPost($pid, $type)`
-  * `public function followPost($pid, $follow)`
   * `public function group($gid, $options = '')`
-  * `public function groupMemberships($options = '')`
-  * `public function groupPost($pid, $options = '')`
-  * `public function groupPostComments($pid, $options = '')`
-  * `public function groupPosts($gid, $options = '')`
+
+===Settings===
+
   * `public function groupSettings($gid, $options = '')`
+  * `public function setGroupSettings($gid, $xml)`
+
+===Membership===
+
+  * `public function groupMemberships($options = '')`
   * `public function joinGroup($gid)`
   * `public function leaveGroup($gid)`
-  * `public function likePost($pid, $like)`
+
+===Suggestions===
+
   * `public function removeSuggestedGroup($gid)`
-  * `public function setGroupSettings($gid, $xml)`
   * `public function suggestedGroups()`
+
+===Posts===
+
+  * `public function groupPost($pid, $options = '')`
+  * `public function groupPosts($gid, $options = '')`
+
+====Manage====
+
+  * `public function createPost($gid, $title, $summary = '')`
+  * `public function deletePost($pid)`
+
+====Comments====
+
+  * `public function groupPostComments($pid, $options = '')`
+
+====Flag====
+
+  * `public function flagPost($pid, $type)`
+
+====Follow====
+
+  * `public function followPost($pid, $follow)`
+
+====Like====
+
+  * `public function likePost($pid, $like)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
