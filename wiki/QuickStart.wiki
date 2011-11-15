@@ -65,7 +65,7 @@ Following the example of the demo scripts, include the Simple-!LinkedIn class fi
 require_once('/path/to/linkedin_X.X.X.class.php');
 }}}
 
-Then, instantiate the LinkedIn object by using the same configuration array from the demo scripts that contains your !LinkedIn API key pair:
+Then, instantiate the !LinkedIn object by using the same configuration array from the demo scripts that contains your !LinkedIn API key pair:
 
 {{{
 $API_CONFIG = array(
