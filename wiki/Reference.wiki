@@ -1,4 +1,5 @@
 #summary Class reference, with methods grouped by LinkedIn API.
+#labels Featured,Phase-Implementation
 
 =Reference (by !LinkedIn API)=
 
