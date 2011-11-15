@@ -15,6 +15,8 @@ This brief guide should have LinkedIn connectivity up and running in a few short
 
 Before starting, you'll need an application token (a key pair) from LinkedIn. You can apply for a key [https://www.linkedin.com/secure/developer here]; be sure to keep this key pair handy - you'll need in in a few moments.
 
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
+
 ==Downloading the Required Files==
 
   * Download the latest version of the script, demo scripts and support image from the '[http://code.google.com/p/simple-linkedinphp/downloads/list Downloads]' page;
