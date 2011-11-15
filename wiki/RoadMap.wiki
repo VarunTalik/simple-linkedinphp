@@ -5,12 +5,19 @@
 
 A non-binding list of future changes, thoughts, etc about the direction of the Simple-!LinkedIn class.
 
+<wiki:toc max_depth="2" />
+
+<p align="right"><g:plusone size="medium"></g:plusone></p>
+
+----
+
 ==Upcoming Changes==
 
 Changes and additions that are planned for inclusion in a future version of the library:
 
-  * Add `deleteComment()` method (missed adding this functionality with the other Groups API methods added in [ReleaseNotes#Version_3.2.0 version 3.2.0]).
-  * Remove all deprecated methods/parameters (v4.0.0)
+  * Add `deleteComment()` method, which was overlooked when adding the other Groups API methods in [ReleaseNotes#Version_3.2.0 version 3.2.0] (v.3.2.1).
+  * Publish unit tests for the class.
+  * Remove all deprecated methods/parameters (v4.0.0).
   * Ability for Simple-!LinkedIn to co-exist with both the stand-alone OAth class, as well as the PECL OAuth extension, depending on which is installed (v4.0.0).
 
 ==To Do==
