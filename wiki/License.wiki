@@ -10,3 +10,5 @@
 The Simple-!LinkedIn library is released under the MIT License, contained in full at the link below:
 
   * [http://www.opensource.org/licenses/mit-license.php MIT License] from the Open Source Initiative.
+
+<p align="right">[License#License ^ Top]</p>
