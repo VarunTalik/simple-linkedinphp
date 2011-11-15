@@ -3,7 +3,9 @@
 
 <g:plusone size="medium"></g:plusone>
 
-<wiki:toc max_depth="1" />
+=Change Log=
+
+<wiki:toc max_depth="2" />
 
 ----
 
