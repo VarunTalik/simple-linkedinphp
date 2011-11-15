@@ -5,6 +5,8 @@
 
 <wiki:toc max_depth="1" />
 
+----
+
 =Version 3.2.0=
 
 ==Core==
