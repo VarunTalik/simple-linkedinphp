@@ -16,12 +16,14 @@ A non-binding list of future changes, thoughts, etc about the direction of the S
 Changes and additions that are planned for inclusion in a future version of the library:
 
   * Add `deleteComment()` method, which was overlooked when adding the other Groups API methods in [ReleaseNotes#Version_3.2.0 version 3.2.0] (v.3.2.1).
-  * Rename and deprecate `comment()` to `commentShare()` to better distinguish it's use (v3.2.1).
-  * Rename and deprecate `comments()` to `shareComments()` to better distinguish it's use (v3.2.1).
-  * Rename and deprecate `like()` to `likeShare()` to better distinguish it's use (v3.2.1).
-  * Rename and deprecate `likes()` to `shareLikes()` to better distinguish it's use (v3.2.1).
-  * Rename and deprecate `unlike()` to `unlikeShare()` to better distinguish it's use (v3.2.1).
-  * Publish unit tests for the class.
+  * Break up functionality of 'followPost()' by adding `unfollowPost()` method, which will standardize the following/un-following of posts along with companies, etc (v.3.2.1).
+  * Break up functionality of 'likePost()' by adding `unlikePost()` method, which will standardize the liking/un-liking of posts along with shares, etc (v.3.2.1).
+  * Rename and deprecate `comment()` method to `commentShare()` to better distinguish it's use (v3.2.1).
+  * Rename and deprecate `comments()` method to `shareComments()` to better distinguish it's use (v3.2.1).
+  * Rename and deprecate `like()` method to `likeShare()` to better distinguish it's use (v3.2.1).
+  * Rename and deprecate `likes()` method to `shareLikes()` to better distinguish it's use (v3.2.1).
+  * Rename and deprecate `unlike()` method to `unlikeShare()` to better distinguish it's use (v3.2.1).
+  * Publish unit tests for the class (v4.0.0).
   * Remove all deprecated methods/parameters (v4.0.0).
   * Ability for Simple-!LinkedIn to co-exist with both the stand-alone OAth class, as well as the [http://pecl.php.net/package/oauth PECL OAuth] extension, depending on which is installed (v4.0.0).
 
