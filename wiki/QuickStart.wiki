@@ -30,9 +30,9 @@ Once you have the needed files, unzip them and place them on your web server in 
 
 By default, the Simple-!LinkedIn class file will look for the OAuth class in the same directory - should you need to change this, simply change the following line, found near the top of the Simple-!LinkedIn class file as needed:
 
-<code language="php">
+{{{
 require_once('OAuth.php');
-</code> 
+}}}
 
 ===Verifying the Install===
 
