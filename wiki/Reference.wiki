@@ -18,6 +18,8 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Connections API==
 
+  * `public function connections($options = '~/connections')`
+
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
@@ -29,6 +31,10 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ----
 
 ==Share API==
+
+===Comments===
+
+  * `public function comment($uid, $comment)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -66,17 +72,36 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Invitation API==
 
+  * `public function invite($method, $recipient, $subject, $body, $type = 'friend')`
+
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
 
 ==Groups API==
 
+  * `public function createPost($gid, $title, $summary = '')`
+  * `public function deletePost($pid)`
+  * `public function flagPost($pid, $type)`
+  * `public function followPost($pid, $follow)`
+  * `public function group($gid, $options = '')`
+  * `public function groupMemberships($options = '')`
+  * `public function groupPost($pid, $options = '')`
+  * `public function groupPostComments($pid, $options = '')`
+  * `public function groupPosts($gid, $options = '')`
+  * `public function groupSettings($gid, $options = '')`
+  * `public function joinGroup($gid)`
+
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
 
 ==Company API==
+
+  * `public function company($options, $by_email = FALSE)`
+  * `public function companyProducts($cid, $options = '')`
+  * `public function followCompany($cid)`
+  * `public function followedCompanies()`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -90,6 +115,21 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Job API==
 
+===Bookmarks===
+
+  * `public function bookmarkJob($jid)`
+  * `public function bookmarkedJobs()`
+  * `public function job($jid, $options = '')`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Job Posting API==
+
+  * `public function closeJob($jid)`
+  * `public function editJob($jid, $xml)`
+
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
@@ -97,5 +137,3 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ==Job Search API==
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
