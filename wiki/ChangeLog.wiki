@@ -40,7 +40,7 @@
   * Added groups.php script, demonstrating new groups related methods.
   * Moved all demo scripts to HTML5.
 
-[ChangeLog#Change_Log Return to Top]
+[ChangeLog#Change_Log ^ Top]
 
 ----
 
