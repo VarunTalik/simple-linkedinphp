@@ -38,9 +38,16 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Share API==
 
-  * `public function comment($uid, $comment)`
-  * `public function like($uid)`
   * `public function share($action, $content, $private = TRUE, $twitter = FALSE)`
+  * `public function updateNetwork($update)`
+
+===Comment===
+
+  * `public function comment($uid, $comment)`
+
+===Like===
+
+  * `public function like($uid)`
   * `public function unlike($uid)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
@@ -49,10 +56,15 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Network Updates API==
 
-  * `public function comments($uid)`
-  * `public function likes($uid)`
-  * `public function updateNetwork($update)`
   * `public function updates($options = NULL, $id = NULL)`
+
+===Comments===
+
+  * `public function comments($uid)`
+
+===Likes===
+
+  * `public function likes($uid)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -108,11 +120,17 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ==Company API==
 
   * `public function company($options, $by_email = FALSE)`
-  * `public function companyProducts($cid, $options = '')`
+
+===Follow===
+
   * `public function followCompany($cid)`
   * `public function followedCompanies()`
   * `public function suggestedCompanies()`
   * `public function unfollowCompany($cid)`
+
+===Products===
+
+  * `public function companyProducts($cid, $options = '')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -128,13 +146,17 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Job API==
 
+  * `public function job($jid, $options = '')`
+
 ===Bookmarks===
 
   * `public function bookmarkJob($jid)`
   * `public function bookmarkedJobs()`
-  * `public function job($jid, $options = '')`
-  * `public function suggestedJobs($options = ':(jobs)')`
   * `public function unbookmarkJob($jid)`
+
+===Suggestions===
+
+  * `public function suggestedJobs($options = ':(jobs)')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -142,9 +164,12 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Job Posting API==
 
+  * `public function postJob($xml)`
+
+===Manage===
+
   * `public function closeJob($jid)`
   * `public function editJob($jid, $xml)`
-  * `public function postJob($xml)`
   * `public function renewJob($jid, $cid)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
