@@ -40,17 +40,7 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ==Share API==
 
   * `public function share($action, $content, $private = TRUE, $twitter = FALSE)`
-  * `public function updateNetwork($update)`
-
-===Comment===
-
-  * `public function comment($uid, $comment)`
-
-===Like===
-
-  * `public function like($uid)`
-  * `public function unlike($uid)`
-
+  
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
@@ -58,14 +48,18 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ==Network Updates API==
 
   * `public function updates($options = NULL, $id = NULL)`
+  * `public function updateNetwork($update)`
 
 ===Comments===
 
+  * `public function comment($uid, $comment)`
   * `public function comments($uid)`
 
 ===Likes===
 
+  * `public function like($uid)`
   * `public function likes($uid)`
+  * `public function unlike($uid)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
