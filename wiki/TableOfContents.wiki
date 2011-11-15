@@ -1,6 +1,7 @@
 #summary Side-bar navigation content.
 
   * [QuickStart Quick Start Guide]
+  * [Reference Class Reference]
   * [ReleaseNotes Release Notes]
   * [ChangeLog Change Log]
   * [License License]
