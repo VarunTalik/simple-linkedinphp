@@ -38,6 +38,8 @@
   * Added groups.php script, demonstrating new groups related methods.
   * Moved all demo scripts to HTML5.
 
+----
+
 =Version 3.1.1=
 
 ==Core==
@@ -61,6 +63,8 @@
 ===New===
 
   * Added jobsPosting.php script, demonstrating new jobs posting related methods.
+
+----
 
 =Version 3.1.0=
 
@@ -102,6 +106,8 @@
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports. See issue 6 for details.
   * Demo scripts now check that sessions have been enabled on the local server, a requirement for the demo scripts to work. See issue 7 for more details.
 
+----
+
 =Version 3.0.2=
 
 ==Demo==
@@ -110,6 +116,8 @@
 
   * Changed demo script from hard-coded `http` callback protocol to use protocol auto-determination, supporting both `http` and `https`. See issue 4 for details.
 
+----
+
 =Version 3.0.1=
 
 ==Core==
@@ -117,6 +125,8 @@
 ===Miscellaneous===
 
   * Updated `_URL_AUTH` class constant, changing to the new 'authenticate' endpoint that allows for automatic authentication in certain circumstances. See this [https://developer.linkedin.com/blog/ LinkedIn Developer's Blog] [https://developer.linkedin.com/blog/oauth-now-authentication entry] for more details.
+
+----
 
 =Version 3.0.0=
 
@@ -143,6 +153,8 @@ $response = array(
   'success'  => Boolean indicating method success
 );
 }}}
+
+----
 
 =Version 2.1.0=
 
@@ -177,6 +189,8 @@ $response = array(
 
   * Added internal data/parameter checking to key methods.
 
+----
+
 =Version 2.0.1=
 
 ==Core==
@@ -190,6 +204,8 @@ $response = array(
 ===Changes===
 
   * Modified `send_request()` method to return the original OAuth request that the class sends to LinkedIn.
+
+----
 
 =Version 2.0.0=
 
@@ -211,6 +227,8 @@ $response = array(
 
   * Integrated `is_throttled()` method into every call to LinkedIn, raises an exception if application request has been throttled.
 
+----
+
 =Version 1.2.0=
 
 ==Core==
@@ -219,6 +237,8 @@ $response = array(
 
   * Added `connections()` method, used to retrieve LinkedIn user connections.
   * Added `connection_message()` method, used to send messages from the current user to their connections.
+
+----
 
 =Version 1.1.1=
 
