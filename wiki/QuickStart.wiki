@@ -5,7 +5,7 @@
 
 This brief guide should have LinkedIn connectivity up and running in a few short minutes.
 
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 <p align="right"><g:plusone size="medium"></g:plusone></p>
 
