@@ -22,6 +22,8 @@ Before starting, you'll need an application token (a key pair) from LinkedIn. Yo
   * Download the latest version of the script, demo scripts and support image from the '[http://code.google.com/p/simple-linkedinphp/downloads/list Downloads]' page;
   * Download the stand-alone [http://oauth.googlecode.com/svn/code/php/ OAuth library from Google Code].
 
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
+
 ==Installing the Files== 
 
 Once you have the needed files, unzip them and place them on your web server in a location that can be accessed by your user-facing PHP scripts.
@@ -51,6 +53,8 @@ $API_CONFIG = array(
 }}}
   # Finally, point your browser at the demo scripts and authorize yourself against LinkedIn with your new application. Once authorized, the demo scripts will become functional, and the install will have been validated.
 
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
+
 ==Including Simple-LinkedIn in your Project==
 
 Now that you've signed up for application keys, and downloaded, installed and verified the library, you can now start building your LinkedIn API application.
@@ -73,3 +77,5 @@ $linkedin = new LinkedIn($API_CONFIG);
 }}}
 
 The final step is to authorize the viewer - the demo scripts contain an example of how to achieve this, but in essence you want to store the user's access token locally so that you can make repeated calls on their behalf to the LinkedIn platform.
+
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
