@@ -255,7 +255,7 @@ Currently, you can access the Profile API via the `profile()` method, send a net
 
 ====Usage====
 
-Once you've connected the user of your application to LinkedIn via [https://developer.linkedin.com/documents/authentication OAuth], you can either change the class constants `_API_KEY` and `_API_SECRET` to contain your API key pair, or you can pass the key pair directly to the class constructor via:
+Once you've connected the user of your application to !LinkedIn via [https://developer.linkedin.com/documents/authentication OAuth], you can either change the class constants `_API_KEY` and `_API_SECRET` to contain your API key pair, or you can pass the key pair directly to the class constructor via:
 
 {{{
 $linkedin = new LinkedIn('<your API key>', '<your API secret>');
