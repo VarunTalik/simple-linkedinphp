@@ -13,6 +13,8 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Profile API==
 
+Implements the [https://developer.linkedin.com/documents/profile-api Profile API]:
+
   * `public function profile($options = '~')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
@@ -20,6 +22,8 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 ----
 
 ==Connections API==
+
+Implements the [https://developer.linkedin.com/documents/connections-api Connections API]:
 
   * `public function connections($options = '~/connections')`
 
@@ -29,6 +33,7 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==People Search API==
 
+Implements the [https://developer.linkedin.com/documents/people-search-api People Search API]:
 
   * `DEPRECATED public function search($options = NULL)`
   * `public function searchPeople($options = NULL)`
@@ -48,6 +53,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 ----
 
 ==Network Updates API==
+
+Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Network Updates API]:
 
   * `public function updates($options = NULL, $id = NULL)`
   * `public function updateNetwork($update)`
@@ -69,6 +76,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 
 ==Statistics API==
 
+Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Statistics API]:
+
   * `public function statistics()`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
@@ -76,6 +85,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 ----
 
 ==Messaging API==
+
+Implements the [https://developer.linkedin.com/documents/messaging-between-connections-api Messaging API]:
 
   * `public function message($recipients, $subject, $body, $copy_self = FALSE)`
 
@@ -85,6 +96,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 
 ==Invitation API==
 
+Implements the [https://developer.linkedin.com/documents/invitation-api Invitation API]:
+
   * `public function invite($method, $recipient, $subject, $body, $type = 'friend')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
@@ -92,6 +105,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 ----
 
 ==Groups API==
+
+Implements the [https://developer.linkedin.com/documents/groups-api Groups API]:
 
   * `public function group($gid, $options = '')`
 
@@ -143,6 +158,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 
 ==Company API==
 
+Implements the [https://developer.linkedin.com/documents/company-lookup-api-and-fields Company API], [https://developer.linkedin.com/documents/company-follow-and-suggestions Company Follow API] and [https://developer.linkedin.com/documents/company-products-and-recommendations Company Products API]:
+
   * `public function company($options, $by_email = FALSE)`
 
 ===Follow===
@@ -162,6 +179,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 
 ==Company Search API==
 
+Implements the [https://developer.linkedin.com/documents/company-search Company Search API]:
+
   * `public function searchCompanies($options = '')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
@@ -169,6 +188,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 ----
 
 ==Job API==
+
+Implements the [https://developer.linkedin.com/documents/job-lookup-api-and-fields Jobs API]:
 
   * `public function job($jid, $options = '')`
 
@@ -188,6 +209,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 
 ==Job Posting API==
 
+Implements the private Job Posting API:
+
   * `public function postJob($xml)`
 
 ===Manage===
@@ -201,6 +224,8 @@ Implements the [https://developer.linkedin.com/documents/share-api Share API]:
 ----
 
 ==Job Search API==
+
+Implements the [https://developer.linkedin.com/documents/job-search-api Job Search API]:
 
   * `public function searchJobs($options = '')`
 
