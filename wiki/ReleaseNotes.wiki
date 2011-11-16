@@ -213,9 +213,28 @@ Full details can be found in the [ChangeLog#Version_1.2.0 Change Log]
 
 ==Version 1.1.1==
 
-  * Added a static `is_throttled()` function that will check the !LinkedIn response and return TRUE/FALSE depending on the throttling state.
+  * `update_network()` now throws an exception on failure, so you should wrap this call and check for the custom `LinkedInException`:
+
+{{{
+try {
+  $response = $LINKEDIN->update_network('Update text');
+} catch(LinkedInException $e) {
+  // handle exception
+}
+}}}
 
 Full details can be found in the [ChangeLog#Version_1.1.1 Change Log]
+
+
+<p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
+
+----
+
+==Version 1.1.0==
+
+  * Added a static `is_throttled()` function that will check the !LinkedIn response and return TRUE/FALSE depending on the throttling state.
+
+Full details can be found in the [ChangeLog#Version_1.1.0 Change Log]
 
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
