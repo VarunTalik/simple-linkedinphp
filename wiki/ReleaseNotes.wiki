@@ -244,3 +244,27 @@ Full details can be found in the [ChangeLog#Version_1.1.0 Change Log]
 Full details can be found in the [ChangeLog#Version_1.0.1 Change Log]
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
+
+----
+
+===Version 1.0.0===
+
+The initial public version of the Simple-!LinkedIn class, which wraps !LinkedIn API functionality allowing you to connect via PHP. 
+
+Currently, you can access the Profile API via the `profile()` method, send a network update via the `update_network` method, and update your status via the `update_status` method. 
+
+====Usage====
+
+Once you've connected the user of your application to LinkedIn via [https://developer.linkedin.com/documents/authentication OAuth], you can either change the class constants `_API_KEY` and `_API_SECRET` to contain your API key pair, or you can pass the key pair directly to the class constructor via:
+
+{{{
+$linkedin = new LinkedIn('<your API key>', '<your API secret>');
+}}}
+
+...and then make calls as follows:
+
+{{{
+$response = $linkedin->profile();
+}}}
+
+<p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
