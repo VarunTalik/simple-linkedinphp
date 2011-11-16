@@ -3,6 +3,7 @@
   * [QuickStart Quick Start Guide]
   * [Reference Class Reference]
   * [ReleaseNotes Release Notes]
+    * [ReleaseNotes#Version_3 Version 3]
   * [ChangeLog Change Log]
   * [RoadMap Project Roadmap]
   * [License License]
