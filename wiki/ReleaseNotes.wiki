@@ -5,13 +5,15 @@
 
 Detailed information on the latest version of the Simple-!LinkedIn library.
 
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 <p align="right"><g:plusone size="medium"></g:plusone></p>
 
 ----
 
-==Version 3.2.0==
+==Version 3==
+
+===Version 3.2.0===
 
 New features: Added support for the Groups API related functionality, including the new methods:
   * `createPost()`, `deletePost()`, `flagPost()`, `followPost()`, `group()`, `groupMemberships()`, `groupPost()`, `groupPostComments()`, `groupPosts()`, `groupSettings()`, `joinGroup()`, `leaveGroup()`, `likePost()`, `removeSuggestedGroup()`, `setGroupSettings()` and `suggestedGroups()`.
@@ -35,7 +37,7 @@ Full details can be found in the [ChangeLog#Version_3.2.0 Change Log]
 
 ----
 
-==Version 3.1.1==
+===Version 3.1.1===
 
 New features: Added new Job Posting API related functionality, including the new methods:
   * `postJob()`, `closeJob()`, `editJob()` and `renewJob()`.
@@ -53,7 +55,7 @@ Full details can be found in the [ChangeLog#Version_3.1.1 Change Log]
 
 ----
 
-==Version 3.1.0==
+===Version 3.1.0===
 
 Version 3.1.0 adds support for the Jobs and Company APIs, including:
   * Company API-specific methods: `company()`, `companyProducts()`, `followCompany()`, `followedCompanies()`, `searchCompanies()`, `suggestedCompanies()`, `unfollowCompany()`.
@@ -71,7 +73,7 @@ Full details can be found in the [ChangeLog#Version_3.1.0 Change Log]
 
 ----
 
-==Version 3.0.2==
+===Version 3.0.2===
 
 Small change to the demo script; it was forcing the callback URL to 'http', now supports auto-determination of protocol to support `http`, `https`, etc.
 
@@ -82,7 +84,7 @@ Full details can be found in the [ChangeLog#Version_3.0.2 Change Log]
 
 ----
 
-==Version 3.0.1==
+===Version 3.0.1===
 
 Just a simple change to the authorization workflow, changing the authorization end-point to the 'authenticate' endpoint.
 
@@ -92,7 +94,7 @@ Full details can be found in the [ChangeLog#Version_3.0.1 Change Log]
 
 ----
 
-==Version 3.0.0==
+===Version 3.0.0===
 
 While there haven't been any new features added to the library, we've rolled out version 3.0.0 as a completely new major release due to the following changes:
 
