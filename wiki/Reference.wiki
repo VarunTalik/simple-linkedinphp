@@ -3,7 +3,7 @@
 
 =Reference (by !LinkedIn API)=
 
-Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
+Simple-!LinkedIn class reference, with methods organized by !LinkedIn API.
 
 <wiki:toc max_depth="2" />
 
