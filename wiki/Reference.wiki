@@ -39,8 +39,9 @@ Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
 ==Share API==
 
+Implements the [https://developer.linkedin.com/documents/share-api Share API]:
+
   * `public function share($action, $content, $private = TRUE, $twitter = FALSE)`
-  * [https://developer.linkedin.com/documents/share-api Share API]
   
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
