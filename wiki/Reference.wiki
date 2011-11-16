@@ -5,7 +5,7 @@
 
 Simple-!LinkedIn class reference, with methods organized by LinkedIn API.
 
-<wiki:toc max_depth="3" />
+<wiki:toc max_depth="2" />
 
 <p align="right"><g:plusone size="medium"></g:plusone></p>
 
