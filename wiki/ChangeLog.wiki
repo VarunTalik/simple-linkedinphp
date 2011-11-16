@@ -17,6 +17,8 @@ A complete list of all changes to the Simple-!LinkedIn library.
 
 ====New====
 
+=====Test=====
+
   * Added `createPost()` method, used to create a post.
   * Added `deletePost()` method, used to delete a previous post by the user.
   * Added `flagPost()` method, used to flag a specific post.
