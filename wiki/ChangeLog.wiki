@@ -5,7 +5,7 @@
 
 A complete list of all changes to the Simple-!LinkedIn library.
 
-<wiki:toc max_depth="2" />
+<wiki:toc max_depth="3" />
 
 <p align="right"><g:plusone size="medium"></g:plusone></p>
 
