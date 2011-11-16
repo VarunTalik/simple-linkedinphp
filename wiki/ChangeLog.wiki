@@ -268,8 +268,44 @@ $response = array(
 
 ===Core===
 
+====Changes====
+
+  * Added exception checking to `update_network()` method.
+
+<p align="right">[ChangeLog#Change_Log ^ Top]</p>
+
+----
+
+==Version 1.1.0==
+
+===Core===
+
 ====New====
 
   * Added static `is_throttled()` method, used to check the !LinkedIn response and return TRUE/FALSE depending on the throttling state.
+
+<p align="right">[ChangeLog#Change_Log ^ Top]</p>
+
+----
+
+==Version 1.0.1==
+
+===Core===
+
+====Changes====
+
+  * Minor changes to the documentation portion of the class.
+
+<p align="right">[ChangeLog#Change_Log ^ Top]</p>
+
+----
+
+==Version 1.0.0==
+
+===Core===
+
+====New====
+
+  * Base class created and published.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
