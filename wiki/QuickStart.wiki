@@ -79,3 +79,9 @@ $linkedin = new LinkedIn($API_CONFIG);
 The final step is to authorize the viewer - the demo scripts contain an example of how to achieve this, but in essence you want to store the user's access token locally so that you can make repeated calls on their behalf to the !LinkedIn platform.
 
 <p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
+
+==Latest Changes, Notes==
+
+Now that you have the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class.
+
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
