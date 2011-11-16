@@ -49,7 +49,6 @@ Additionally, we've adding some internal data/parameter checking to hopefully ca
 
 Full details can be found in the [ChangeLog#Version_3.1.1 Change Log]
 
-
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
 ----
@@ -67,7 +66,6 @@ Additionally, the following changes have been made:
   * Demo scripts now support use of non-standard port numbers for those that are running the scripts on different ports.
 
 Full details can be found in the [ChangeLog#Version_3.1.0 Change Log]
-
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
@@ -89,7 +87,6 @@ Full details can be found in the [ChangeLog#Version_3.0.2 Change Log]
 Just a simple change to the authorization workflow, changing the authorization end-point to the 'authenticate' endpoint.
 
 Full details can be found in the [ChangeLog#Version_3.0.1 Change Log]
-
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
@@ -119,7 +116,6 @@ $response = array(
 As always, have at the [http://simplelinkedin.fiftymission.net demo site] to see it in action. Let me know if you have any issues.
 
 Full details can be found in the [ChangeLog#Version_3.0.0 Change Log]
-
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
@@ -159,7 +155,6 @@ Updates to this version:
 
 Full details can be found in the [ChangeLog#Version_2.1.0 Change Log]
 
-
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
 ----
@@ -175,7 +170,6 @@ Two changes:
   # Added a second set on class constants to store 'development' stage application keys.  Setting the new class constant `_API_DEV_MODE` to `TRUE` will make use of these 'development' keys.  Useful for keeping track of what mode/key-pair your application is using, and saves you having to keep two sets of keys in disparate places.
 
 Full details can be found in the [ChangeLog#Version_2.0.1 Change Log]
-
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
@@ -195,7 +189,6 @@ It is recommended that you test your code when upgrading from a previous version
 
 Full details can be found in the [ChangeLog#Version_2.0.0 Change Log]
 
-
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
 ----
@@ -205,7 +198,6 @@ Full details can be found in the [ChangeLog#Version_2.0.0 Change Log]
   * Added basic Connections/Messaging API functionality via added `connections()` and `connection_message()` functions.
 
 Full details can be found in the [ChangeLog#Version_1.2.0 Change Log]
-
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
@@ -225,7 +217,6 @@ try {
 
 Full details can be found in the [ChangeLog#Version_1.1.1 Change Log]
 
-
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
 
 ----
@@ -236,5 +227,14 @@ Full details can be found in the [ChangeLog#Version_1.1.1 Change Log]
 
 Full details can be found in the [ChangeLog#Version_1.1.0 Change Log]
 
+<p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
+
+----
+
+==Version 1.0.1==
+
+  * Fixed a minor bug in the demo script, download the new version and simply overwrite demo.php.
+
+Full details can be found in the [ChangeLog#Version_1.0.1 Change Log]
 
 <p align="right">[ReleaseNotes#Release_Notes ^ Top]</p>
