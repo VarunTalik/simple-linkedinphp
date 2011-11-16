@@ -3,7 +3,7 @@
 
 =Release Notes=
 
-Detailed information on the latest version of the Simple-!LinkedIn library.
+Detailed information on the latest version of the Simple-!LinkedIn library. See the [QuickStart Quick Start Guide] for information on using the library.
 
 <wiki:toc max_depth="3" />
 
