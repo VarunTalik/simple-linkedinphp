@@ -3,7 +3,7 @@
 
 =Project Roadmap=
 
-A non-binding list of future changes, thoughts, etc about the direction of the Simple-!LinkedIn class.
+A non-binding list of future changes, thoughts and more about the direction of the Simple-!LinkedIn class.
 
 <wiki:toc max_depth="2" />
 
