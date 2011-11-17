@@ -17,7 +17,7 @@ Changes and additions that are planned for inclusion in a future version of the 
 
 ===Near-Term===
 
-  * Add `deletePostComment()` method, which was overlooked when adding the other Groups API methods in [ReleaseNotes#Version_3.2.0 version 3.2.0] (v.3.2.1).
+  * Add `createPostComment()`, `deletePostComment()` methods, which were overlooked when adding the other Groups API methods in [ReleaseNotes#Version_3.2.0 version 3.2.0] (v.3.2.1).
   * Break up functionality of 'followPost()' by adding `unfollowPost()` method, which will standardize the following/un-following of posts along with companies, etc (v.3.2.1).
   * Break up functionality of 'likePost()' by adding `unlikePost()` method, which will standardize the liking/un-liking of posts along with shares, etc (v.3.2.1).
   * Rename and deprecate `comment()` method to `commentUpdate()` to better distinguish it's use (v3.2.1).
