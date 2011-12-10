@@ -82,6 +82,6 @@ The final step is to authorize the viewer - the demo scripts contain an example 
 
 ==Latest Changes, Notes==
 
-Now that you have the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class.
+Now that you have the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class. Additionally, the [ChangeLog Change Log] details all changes from version to version.
 
 <p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
