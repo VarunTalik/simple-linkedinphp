@@ -58,7 +58,7 @@
  *    
  * REST API Documentation: http://developer.linkedin.com/rest
  *    
- * @version 3.3.0 - November 8, 2011
+ * @version 3.3.0 - December 10, 2011
  * @author Paul Mennega <paul@fiftymission.net>
  * @copyright Copyright 2011, fiftyMission Inc. 
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License 
@@ -75,7 +75,7 @@ if(!extension_loaded('oauth')) {
   require_once('OAuth.php');
 } else {
   // the PECL extension is present, which is not compatible with this library
-  throw new LinkedInException('Simple-LinkedIn: library not compatible with installed PECL OAuth extension.  Please disable this extension to use the Simple-LinkedIn library.');
+  throw new LinkedInException('Simple-LinkedIn: library not compatible with installed PECL OAuth extension. Please disable this extension to use the Simple-LinkedIn library.');
 }
 
 /**
@@ -98,8 +98,8 @@ class LinkedInException extends Exception {}
  */
 class LinkedIn {
   // api/oauth settings
-  const _API_OAUTH_REALM             = 'http://api.linkedin.com';
-  const _API_OAUTH_VERSION           = '1.0';
+  const _DEFAULT_OAUTH_REALM         = 'http://api.linkedin.com';
+  const _DEFAULT_OAUTH_VERSION       = '1.0';
   
   // the default response format from LinkedIn
   const _DEFAULT_RESPONSE_FORMAT     = 'xml';
@@ -132,14 +132,17 @@ class LinkedIn {
   // LinkedIn API end-points
 	const _URL_ACCESS                  = 'https://api.linkedin.com/uas/oauth/accessToken';
 	const _URL_API                     = 'https://api.linkedin.com';
-	const _URL_AUTH                    = self::_URL_AUTHENTICATE;
 	
+  /**
+   * @deprecated
+   */     
+  const _URL_AUTH                    = self::_URL_AUTHENTICATE;
   const _URL_AUTHENTICATE            = 'https://www.linkedin.com/uas/oauth/authenticate?oauth_token=';
 	const _URL_AUTHORIZE               = 'https://www.linkedin.com/uas/oauth/authorize?oauth_token=';
 	const _URL_REQUEST                 = 'https://api.linkedin.com/uas/oauth/requestToken';
 	const _URL_REVOKE                  = 'https://api.linkedin.com/uas/oauth/invalidateToken';
 	
-	// Library version
+	// library version
 	const _VERSION                     = '3.3.0';
   
   // oauth properties
@@ -165,7 +168,8 @@ class LinkedIn {
 	 *    The 'start-up' object properties:
 	 *           - appKey       => The application's API key
 	 *           - appSecret    => The application's secret key
-	 *           - callbackUrl  => [OPTIONAL] the callback URL
+	 *           - callbackUrl  => [OPTIONAL] the callback URL - only used to 
+	 *                             retrieve the request token.
 	 *                 	 
 	 * @return obj
 	 *    A new LinkedIn object.   	 
@@ -177,7 +181,11 @@ class LinkedIn {
     }
     $this->setApplicationKey($config['appKey']);
 	  $this->setApplicationSecret($config['appSecret']);
-	  $this->setCallbackUrl($config['callbackUrl']);
+	  if(array_key_exists('callbackUrl', $config)) {
+      $this->setCallbackUrl($config['callbackUrl']);
+    } else {
+      $this->setCallbackUrl(NULL);
+    }
 	}
 	
 	/**
@@ -220,7 +228,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(201, $response);
+		return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -244,7 +252,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -260,37 +268,14 @@ class LinkedIn {
 	 * @return boolean
 	 * 	  TRUE or FALSE depending on if the passed LinkedIn response matches the expected response.
 	 * 	  
-	 * @since 3.1.1   	 
+	 * @since 3.1.0
+	 * 
+	 * @deprecated
+	 * 
+	 * @see #setResponse(var, arr)         	 
 	 */
 	private function checkResponse($http_code_required, $response) {
-		// check passed data
-    if(is_array($http_code_required)) {
-		  array_walk($http_code_required, function($value, $key) {
-        if(!is_int($value)) {
-    			throw new LinkedInException('LinkedIn->checkResponse(): $http_code_required must be an integer or an array of integer values');
-    		}
-      });
-		} else {
-		  if(!is_int($http_code_required)) {
-  			throw new LinkedInException('LinkedIn->checkResponse(): $http_code_required must be an integer or an array of integer values');
-  		} else {
-  		  $http_code_required = array($http_code_required);
-  		}
-		}
-		if(!is_array($response)) {
-			throw new LinkedInException('LinkedIn->checkResponse(): $response must be an array');
-		}		
-		
-		// check for a match
-		if(in_array($response['info']['http_code'], $http_code_required)) {
-		  // response found
-		  $response['success'] = TRUE;
-		} else {
-			// response not found
-			$response['success'] = FALSE;
-			$response['error']   = 'HTTP response from LinkedIn end-point was not code ' . implode(', ', $http_code_required);
-		}
-		return $response;
+		return $this->setResponse($http_code_required, $response);
 	}
 	
 	/**
@@ -323,7 +308,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(204, $response);
+	  return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -349,7 +334,7 @@ class LinkedIn {
 	 * @see #commentUpdate(str, str)                         	 
 	 */
 	public function comment($uid, $comment) {
-    return commentUpdate($uid, $comment);
+    return $this->commentUpdate($uid, $comment);
 	}
 	
 	/**
@@ -372,7 +357,7 @@ class LinkedIn {
 	 * @see #updateComments(str)                                     
 	 */
 	public function comments($uid) {
-    return updateComments($uid);
+    return $this->updateComments($uid);
 	}
 	
 	/**
@@ -414,7 +399,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
   /**
@@ -455,7 +440,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
   	
 	/**
@@ -490,7 +475,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -536,7 +521,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(201, $response);
+		return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -576,7 +561,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(201, $response);
+		return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -628,7 +613,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -658,7 +643,7 @@ class LinkedIn {
      * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -688,7 +673,7 @@ class LinkedIn {
      * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -731,7 +716,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -765,17 +750,16 @@ class LinkedIn {
 	  }
 	  
     try {
-	    // generate OAuth values
-	    $oauth_consumer  = new OAuthConsumer($this->getApplicationKey(), $this->getApplicationSecret(), $this->getCallbackUrl());
-	    $oauth_token     = $this->getToken();
-	    $oauth_token     = (!is_null($oauth_token)) ? new OAuthToken($oauth_token['oauth_token'], $oauth_token['oauth_token_secret']) : NULL;
-      $defaults        = array(
-        'oauth_version' => self::_API_OAUTH_VERSION
-      );
-	    $parameters    = array_merge($defaults, $parameters);
+      // set parameters
+      if(!array_key_exists('oauth_version', $parameters)) {
+        $parameters['oauth_version'] = self::_DEFAULT_OAUTH_VERSION;
+      }
 	    
 	    // generate OAuth request
-  		$oauth_req = OAuthRequest::from_consumer_and_token($oauth_consumer, $oauth_token, $method, $url, $parameters);
+  		$oauth_token    = $this->getToken();
+	    $oauth_token    = (!is_null($oauth_token)) ? new OAuthToken($oauth_token['oauth_token'], $oauth_token['oauth_token_secret']) : NULL;
+      $oauth_consumer = new OAuthConsumer($this->getApplicationKey(), $this->getApplicationSecret(), $this->getCallbackUrl());
+      $oauth_req      = OAuthRequest::from_consumer_and_token($oauth_consumer, $oauth_token, $method, $url, $parameters);
       $oauth_req->sign_request(new OAuthSignatureMethod_HMAC_SHA1(), $oauth_consumer, $oauth_token);
       
       // start cURL, checking for a successful initiation
@@ -792,10 +776,9 @@ class LinkedIn {
       curl_setopt($handle, CURLOPT_VERBOSE, FALSE);
       
       // configure the header we are sending to LinkedIn - http://developer.linkedin.com/docs/DOC-1203
-      $header = array($oauth_req->to_header(self::_API_OAUTH_REALM));
+      $header = array($oauth_req->to_header(self::_DEFAULT_OAUTH_REALM));
       if(is_null($data)) {
         // not sending data, identify the content type
-        $header[] = 'Content-Type: text/plain; charset=UTF-8';
         switch($this->getResponseFormat()) {
           case self::_RESPONSE_JSON:
             $header[] = 'x-li-format: json';
@@ -805,7 +788,6 @@ class LinkedIn {
             break;
         }
       } else {
-        $header[] = 'Content-Type: text/xml; charset=UTF-8';
         curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
       }
       curl_setopt($handle, CURLOPT_HTTPHEADER, $header);
@@ -817,15 +799,24 @@ class LinkedIn {
       // gather the response
       $return_data['linkedin']        = curl_exec($handle);
       $return_data['info']            = curl_getinfo($handle);
-      $return_data['oauth']['header'] = $oauth_req->to_header(self::_API_OAUTH_REALM);
+      $return_data['oauth']['header'] = $oauth_req->to_header(self::_DEFAULT_OAUTH_REALM);
+      $return_data['oauth']['body']   = print_r($data, TRUE);
       $return_data['oauth']['string'] = $oauth_req->base_string;
+      
+      // check for HTTP, NO response (http_code = 0) from cURL
+      if((array_key_exists('info', $return_data)) && (array_key_exists('http_code', $return_data['info']))) {
+        if($return_data['info']['http_code'] == 0) {
+          throw new LinkedInException('LinkedIn->fetch(): connection was closed unexpectedly with endpoint.'); 
+        }
+      } else {
+        // no response code from cURL
+        throw new LinkedInException('LinkedIn->fetch(): cURL did not return an HTTP code.');
+      }
             
       // check for throttling
       if(self::isThrottled($return_data['linkedin'])) {
         throw new LinkedInException('LinkedIn->fetch(): throttling limit for this user/application has been reached for LinkedIn resource - ' . $url);
       }
-      
-      //TODO - add check for NO response (http_code = 0) from cURL
       
       // close cURL connection
       curl_close($handle);
@@ -882,7 +873,7 @@ class LinkedIn {
      * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -916,7 +907,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(201, $response);
+	  return $this->setResponse(201, $response);
 	}
 
 	/**
@@ -940,7 +931,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
   /**
@@ -976,7 +967,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -1090,7 +1081,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1119,7 +1110,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1153,7 +1144,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1187,7 +1178,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1219,7 +1210,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1253,7 +1244,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1401,7 +1392,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -1513,7 +1504,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1550,7 +1541,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 or 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(array(200, 201), $response);
+		return $this->setResponse(array(200, 201), $response);
 	}
 	
 	/**
@@ -1605,7 +1596,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -1626,7 +1617,7 @@ class LinkedIn {
 	 * @see #likeUpdate(str)                                  
 	 */
 	public function like($uid) {
-    return likeUpdate($uid);
+    return $this->likeUpdate($uid);
 	}
 	
 	/**
@@ -1647,7 +1638,7 @@ class LinkedIn {
 	 */
 	public function likePost($pid, $like = TRUE) {
 		if(!is_string($pid)) {
-			throw new LinkedInException ('LinkedIn->likePost(): bad data passed, $pid must be of type string');
+			throw new LinkedInException('LinkedIn->likePost(): bad data passed, $pid must be of type string');
 		}
 		
 		// construct the XML
@@ -1662,7 +1653,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 
 	/**
@@ -1685,7 +1676,7 @@ class LinkedIn {
 	 * @see #updateLikes(str)                                   
 	 */
 	public function likes($uid) {
-    return updateLikes($uid);
+    return $this->updateLikes($uid);
 	}
   	
 	/**
@@ -1720,7 +1711,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 
 	/**
@@ -1776,7 +1767,7 @@ class LinkedIn {
                     if(is_string($recipients[$i])) {
                       $data .= '<recipient><person path="/people/' . trim($recipients[$i]) . '"/></recipient>';
                     } else {
-                      throw new LinkedInException ('LinkedIn->message(): bad data passed, $recipients must be an array of type string.');
+                      throw new LinkedInException('LinkedIn->message(): bad data passed, $recipients must be an array of type string.');
                     }
                   }
     $data  .= '  </recipients>
@@ -1792,7 +1783,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -1827,7 +1818,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -1863,7 +1854,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -1930,7 +1921,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -1976,7 +1967,47 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
+	}
+	
+	/**
+	 * Access token retrieval.
+	 *
+	 * Request the user's access token from the Linkedin API, per:
+	 * 
+	 *   http://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens   	 
+	 * 
+	 * @param str $token
+	 *    The token returned from the user authorization stage.
+	 * @param str $secret
+	 *    The secret returned from the request token stage.
+	 * @param str $verifier
+	 *    The verification value from LinkedIn.
+	 *    	 
+	 * @return arr 
+	 *    The Linkedin OAuth/http response, in array format.
+	 *    
+	 * @since 3.3.0            	 
+	 */
+	public function retrieveRestToken($bearer_token) {
+	  // check passed data
+    if(!is_string($bearer_token)) {
+      // nothing passed, raise an exception
+		  throw new LinkedInException('LinkedIn->retrieveRestToken(): bad data passed, $bearer_token must be of string value.');
+    }
+    
+    // start retrieval process
+    $parameters = array(
+      'xoauth_oauth2_access_token' => $bearer_token      
+    );
+    $response = $this->fetch(self::_METHOD_TOKENS, self::_URL_ACCESS, http_build_query($parameters), $parameters);
+    parse_str($response['linkedin'], $response['linkedin']);
+    
+    /**
+	   * Check for successful request (a 200 response from LinkedIn server) 
+	   * per the documentation linked in method comments above.
+	   */
+    return $this->setResponse(200, $response);
 	}
 	
   /**
@@ -2100,7 +2131,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */                	  
-    return $this->checkResponse(200, $response);
+    return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2126,7 +2157,7 @@ class LinkedIn {
 	 * @see #searchPeople(str)               	 
 	 */
 	public function search($options = NULL) {
-		return searchPeople($options);
+		return $this->searchPeople($options);
 	}
 	
 	/**
@@ -2160,7 +2191,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2195,7 +2226,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2230,7 +2261,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2306,7 +2337,60 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
+	}
+	
+	/**
+	 * Used to set the success component of the standard method response, based on
+	 * whether a passed LinkedIn response object has the required http_code or not 
+	 * and returns an appropriate LinkedIn object.
+	 * 
+	 * @param var $http_code_required
+	 * 		The required http response from LinkedIn, passed in either as an integer, 
+	 * 		or an array of integers representing the expected values.	 
+	 * @param arr $response 
+	 *    An array containing a LinkedIn response.
+	 * 
+	 * @return boolean
+	 * 	  TRUE or FALSE depending on if the passed LinkedIn response matches the expected response.
+	 * 	  
+	 * @since 3.3.0   	 
+	 */
+	private function setResponse($http_code_required, $response) {
+		// check passed data
+    if(is_array($http_code_required)) {
+      foreach($http_code_required as $http_code) {
+        if(!is_int($value)) {
+    			throw new LinkedInException('LinkedIn->setResponse(): $http_code_required must be an integer or an array of integer values');
+    		}
+      }
+		} else {
+		  if(!is_int($http_code_required)) {
+  			throw new LinkedInException('LinkedIn->setResponse(): $http_code_required must be an integer or an array of integer values');
+  		} else {
+  		  $http_code_required = array($http_code_required);
+  		}
+		}
+		if(!is_array($response)) {
+			throw new LinkedInException('LinkedIn->setResponse(): $response must be an array');
+		}		
+		
+		// check for a match
+		if(array_key_exists('http_code', $response['info'])) {
+  		if(in_array($response['info']['http_code'], $http_code_required)) {
+  		  // response found
+  		  $response['success'] = TRUE;
+  		} else {
+  			// response not found
+  			$response['success'] = FALSE;
+  			$response['error']   = 'HTTP response from LinkedIn end-point was not code ' . implode(', ', $http_code_required);
+  		}
+		} else {
+		  // response not found
+			$response['success'] = FALSE;
+			$response['error']   = 'No HTTP response from LinkedIn end-point.';
+		}
+		return $response;
 	}
 	
 	/**
@@ -2324,7 +2408,7 @@ class LinkedIn {
 	/**
 	 * Set the token property.
 	 * 
-	 * @return arr $token 
+	 * @param arr $token 
 	 *    The LinkedIn OAuth token.
 	 *    
 	 * @since 1.0.0   	 
@@ -2344,8 +2428,8 @@ class LinkedIn {
 	 * [DEPRECATED] Set the token_access property. Will be removed in v4 of the
 	 * class.
 	 * 
-	 * @return arr $token_access 
-	 *    [OPTIONAL] The LinkedIn OAuth access token.
+	 * @param arr $token_access 
+	 *    The LinkedIn OAuth access token.
 	 *    
 	 * @since 1.0.0
 	 * 
@@ -2504,7 +2588,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -2529,7 +2613,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(200, $response);
+		return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2553,7 +2637,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2575,7 +2659,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse (200, $response);
+		return $this->setResponse(200, $response);
 	}
 
 	/**
@@ -2608,7 +2692,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2642,7 +2726,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(204, $response);
+	  return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -2676,7 +2760,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(204, $response);
+	  return $this->setResponse(204, $response);
 	}
 
 	/**
@@ -2709,7 +2793,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
   	
 	/**
@@ -2732,7 +2816,7 @@ class LinkedIn {
 	 * @see #unlikeUpdate(str)                                    
 	 */
 	public function unlike($uid) {
-    return unlikeUpdate($uid);
+    return $this->unlikeUpdate($uid);
 	}
 	
 	/**
@@ -2750,7 +2834,7 @@ class LinkedIn {
 	 */
 	public function unlikePost($pid) {
 		if(!is_string($pid)) {
-			throw new LinkedInException ('LinkedIn->unlikePost(): bad data passed, $pid must be of type string');
+			throw new LinkedInException('LinkedIn->unlikePost(): bad data passed, $pid must be of type string');
 		}
 		
 		// construct the XML
@@ -2765,7 +2849,7 @@ class LinkedIn {
 	   * Check for successful request (a 204 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-		return $this->checkResponse(204, $response);
+		return $this->setResponse(204, $response);
 	}
 	
 	/**
@@ -2802,7 +2886,7 @@ class LinkedIn {
 	   * Check for successful request (a 201 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(201, $response);
+    return $this->setResponse(201, $response);
 	}
 	
 	/**
@@ -2835,7 +2919,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(200, $response);
+    return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2868,7 +2952,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */ 
-    return $this->checkResponse(200, $response);
+    return $this->setResponse(200, $response);
 	}
 	
 	/**
@@ -2941,7 +3025,7 @@ class LinkedIn {
   	   * Check for successful request (a 201 response from LinkedIn server) 
   	   * per the documentation linked in method comments above.
   	   */ 
-      return $this->checkResponse(201, $response);
+      return $this->setResponse(201, $response);
     } else {
       // profile retrieval failed
       throw new LinkedInException('LinkedIn->updateNetwork(): profile data could not be retrieved.');
@@ -2994,7 +3078,7 @@ class LinkedIn {
 	   * Check for successful request (a 200 response from LinkedIn server) 
 	   * per the documentation linked in method comments above.
 	   */
-	  return $this->checkResponse(200, $response);
+	  return $this->setResponse(200, $response);
 	}
 	
 	/**
