@@ -18,9 +18,9 @@ Detailed information on the latest version of the Simple-!LinkedIn library. See 
 New features: Added support for two Groups API related bits of functionality that we missed in the last release:
   * `createPostComment()`, `deletePostComment()`.
 
-We've also added a new `exchangeToken()` method, allowing the user to automate (as much as possible) the [token exchange process https://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens]. 
+We've also added a new `exchangeToken()` method, allowing the user to automate (as much as possible) the [https://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens token exchange process]. 
 
-To support/demo this added functionality, we've added a pair of new pages to the demo scripts, tokenExchange.html, tokenExchange.php. These pages need to be located on a secure host (HTTPS) to function - once you have them there, load up the tokenExchange.html page and use it to authenticate against the LinkedIn via the JavaScript API. Once you have done that, your OAuth 2.0 bearer token will be passed to tokenExchange.php, which will then perform the exchange using the new library functionality.
+To support/demo this added functionality, we've added a pair of new pages to the demo scripts, tokenExchange.html, tokenExchange.php. These pages need to be located on a secure host (HTTPS) to function - once you have them there, load up the tokenExchange.html page and use it to authenticate against the !LinkedIn via the !JavaScript API. Once you have done that, your OAuth 2.0 bearer token will be passed to tokenExchange.php, which will then perform the exchange using the new library functionality.
 
 A live demo of these scripts can be found here:
 
