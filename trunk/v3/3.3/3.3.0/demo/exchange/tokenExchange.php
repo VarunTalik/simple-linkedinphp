@@ -133,7 +133,7 @@ try {
 
   // swap tokens
   $OBJ_linkedin = new LinkedIn($API_CONFIG);
-  $response = $OBJ_linkedin->retrieveRestToken($credentials['access_token']);
+  $response = $OBJ_linkedin->exchangeToken($credentials['access_token']);
   
   // echo out response
   echo '<pre>' . print_r($response['linkedin'], TRUE) . '</pre>';

@@ -719,6 +719,47 @@ class LinkedIn {
 	  return $this->setResponse(200, $response);
 	}
 	
+		/**
+	 * Exchange user's OAuth tokens.
+	 *
+	 * Exchange the user's permanent Oauth 1.0 access token from the 
+	 * Linkedin API using their temporary OAuth 2.0 bearer token, per:
+	 * 
+	 *   http://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens   	 
+	 * 
+	 * @param str $token
+	 *    The token returned from the user authorization stage.
+	 * @param str $secret
+	 *    The secret returned from the request token stage.
+	 * @param str $verifier
+	 *    The verification value from LinkedIn.
+	 *    	 
+	 * @return arr 
+	 *    The Linkedin OAuth/http response, in array format.
+	 *    
+	 * @since 3.3.0            	 
+	 */
+	public function exchangeToken($bearer_token) {
+	  // check passed data
+    if(!is_string($bearer_token)) {
+      // nothing passed, raise an exception
+		  throw new LinkedInException('LinkedIn->exchangeToken(): bad data passed, $bearer_token must be of string value.');
+    }
+    
+    // start retrieval process
+    $parameters = array(
+      'xoauth_oauth2_access_token' => $bearer_token      
+    );
+    $response = $this->fetch(self::_METHOD_TOKENS, self::_URL_ACCESS, http_build_query($parameters), $parameters);
+    parse_str($response['linkedin'], $response['linkedin']);
+    
+    /**
+	   * Check for successful request (a 200 response from LinkedIn server) 
+	   * per the documentation linked in method comments above.
+	   */
+    return $this->setResponse(200, $response);
+	}
+	
 	/**
 	 * General data send/request method.
 	 * 
@@ -1969,47 +2010,7 @@ class LinkedIn {
 	   */
 	  return $this->setResponse(200, $response);
 	}
-	
-	/**
-	 * Access token retrieval.
-	 *
-	 * Request the user's access token from the Linkedin API, per:
-	 * 
-	 *   http://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens   	 
-	 * 
-	 * @param str $token
-	 *    The token returned from the user authorization stage.
-	 * @param str $secret
-	 *    The secret returned from the request token stage.
-	 * @param str $verifier
-	 *    The verification value from LinkedIn.
-	 *    	 
-	 * @return arr 
-	 *    The Linkedin OAuth/http response, in array format.
-	 *    
-	 * @since 3.3.0            	 
-	 */
-	public function retrieveRestToken($bearer_token) {
-	  // check passed data
-    if(!is_string($bearer_token)) {
-      // nothing passed, raise an exception
-		  throw new LinkedInException('LinkedIn->retrieveRestToken(): bad data passed, $bearer_token must be of string value.');
-    }
-    
-    // start retrieval process
-    $parameters = array(
-      'xoauth_oauth2_access_token' => $bearer_token      
-    );
-    $response = $this->fetch(self::_METHOD_TOKENS, self::_URL_ACCESS, http_build_query($parameters), $parameters);
-    parse_str($response['linkedin'], $response['linkedin']);
-    
-    /**
-	   * Check for successful request (a 200 response from LinkedIn server) 
-	   * per the documentation linked in method comments above.
-	   */
-    return $this->setResponse(200, $response);
-	}
-	
+
   /**
 	 * Access token retrieval.
 	 *
