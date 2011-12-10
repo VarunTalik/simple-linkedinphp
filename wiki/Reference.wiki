@@ -11,11 +11,32 @@ Simple-!LinkedIn class reference, with methods organized by !LinkedIn API.
 
 ----
 
-==Profile API==
+==Company API==
 
-Implements the [https://developer.linkedin.com/documents/profile-api Profile API]:
+Implements the [https://developer.linkedin.com/documents/company-lookup-api-and-fields Company API], [https://developer.linkedin.com/documents/company-follow-and-suggestions Company Follow API] and [https://developer.linkedin.com/documents/company-products-and-recommendations Company Products API]:
 
-  * `public function profile($options = '~')`
+  * `public function company($options, $by_email = FALSE)`
+
+===Follow===
+
+  * `public function followCompany($cid)`
+  * `public function followedCompanies()`
+  * `public function suggestedCompanies()`
+  * `public function unfollowCompany($cid)`
+
+===Products===
+
+  * `public function companyProducts($cid, $options = '')`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Company Search API==
+
+Implements the [https://developer.linkedin.com/documents/company-search Company Search API]:
+
+  * `public function searchCompanies($options = '')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -31,84 +52,11 @@ Implements the [https://developer.linkedin.com/documents/connections-api Connect
 
 ----
 
-==People Search API==
-
-Implements the [https://developer.linkedin.com/documents/people-search-api People Search API]:
-
-  * `DEPRECATED public function search($options = NULL)`
-  * `public function searchPeople($options = NULL)`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Share API==
-
-Implements the [https://developer.linkedin.com/documents/share-api Share API]:
-
-  * `public function share($action, $content, $private = TRUE, $twitter = FALSE)`
-  
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Network Updates API==
-
-Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Network Updates API]:
-
-  * `public function updates($options = NULL, $id = NULL)`
-  * `public function updateNetwork($update)`
-
-===Comments===
-
-  * `public function comment($uid, $comment)`
-  * `public function comments($uid)`
-
-===Likes===
-
-  * `public function like($uid)`
-  * `public function likes($uid)`
-  * `public function unlike($uid)`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Statistics API==
-
-Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Statistics API]:
-
-  * `public function statistics()`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Messaging API==
-
-Implements the [https://developer.linkedin.com/documents/messaging-between-connections-api Messaging API]:
-
-  * `public function message($recipients, $subject, $body, $copy_self = FALSE)`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Invitation API==
-
-Implements the [https://developer.linkedin.com/documents/invitation-api Invitation API]:
-
-  * `public function invite($method, $recipient, $subject, $body, $type = 'friend')`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
 ==Groups API==
 
 Implements the [https://developer.linkedin.com/documents/groups-api Groups API]:
 
-  * `public function group($gid, $options = '')`
+  * `public function group($gid, $options)`
 
 ===Settings===
 
@@ -138,6 +86,8 @@ Implements the [https://developer.linkedin.com/documents/groups-api Groups API]:
 
 ====Comments====
 
+  * `public function createPostComments($pid, $comment)`
+  * `public function deletePostComments($cid)`
   * `public function groupPostComments($pid, $options = '')`
 
 ====Flag====
@@ -146,42 +96,23 @@ Implements the [https://developer.linkedin.com/documents/groups-api Groups API]:
 
 ====Follow====
 
-  * `public function followPost($pid, $follow)`
+  * `public function followPost($pid)`
+  * `public function unfollowPost($pid)`
 
 ====Like====
 
-  * `public function likePost($pid, $like)`
+  * `public function likePost($pid)`
+  * `public function unlikePost($pid)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
 ----
 
-==Company API==
+==Invitation API==
 
-Implements the [https://developer.linkedin.com/documents/company-lookup-api-and-fields Company API], [https://developer.linkedin.com/documents/company-follow-and-suggestions Company Follow API] and [https://developer.linkedin.com/documents/company-products-and-recommendations Company Products API]:
+Implements the [https://developer.linkedin.com/documents/invitation-api Invitation API]:
 
-  * `public function company($options, $by_email = FALSE)`
-
-===Follow===
-
-  * `public function followCompany($cid)`
-  * `public function followedCompanies()`
-  * `public function suggestedCompanies()`
-  * `public function unfollowCompany($cid)`
-
-===Products===
-
-  * `public function companyProducts($cid, $options = '')`
-
-<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
-
-----
-
-==Company Search API==
-
-Implements the [https://developer.linkedin.com/documents/company-search Company Search API]:
-
-  * `public function searchCompanies($options = '')`
+  * `public function invite($method, $recipient, $subject, $body, $type = 'friend')`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
 
@@ -228,5 +159,103 @@ Implements the private Job Posting API:
 Implements the [https://developer.linkedin.com/documents/job-search-api Job Search API]:
 
   * `public function searchJobs($options = '')`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Messaging API==
+
+Implements the [https://developer.linkedin.com/documents/messaging-between-connections-api Messaging API]:
+
+  * `public function message($recipients, $subject, $body, $copy_self = FALSE)`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Network Updates API==
+
+Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Network Updates API]:
+
+  * `public function updates($options = NULL, $id = NULL)`
+  * `public function updateNetwork($update)`
+
+===Comments===
+
+  * `public function createUpdateComment($uid, $comment)`
+  * `public function updateComments($uid)`
+
+===Likes===
+
+  * `public function likeUpdate($uid)`
+  * `public function updateLikes($uid)`
+  * `public function unlikeUpdate($uid)`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==People Search API==
+
+Implements the [https://developer.linkedin.com/documents/people-search-api People Search API]:
+
+  * `public function searchPeople($options = NULL)`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Profile API==
+
+Implements the [https://developer.linkedin.com/documents/profile-api Profile API]:
+
+  * `public function profile($options = '~')`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Share API==
+
+Implements the [https://developer.linkedin.com/documents/share-api Share API]:
+
+  * `public function share($action, $content, $private = TRUE, $twitter = FALSE)`
+  
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Statistics API==
+
+Implements the [https://developer.linkedin.com/documents/get-network-updates-and-statistics-api Statistics API]:
+
+  * `public function statistics()`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+----
+
+==Token Exchange API==
+
+Implements the [http://developer.linkedin.com/documents/exchange-jsapi-tokens-rest-api-oauth-tokens Token Exchange API]:
+
+  * `public function exchangeToken($bearer_token)`
+
+<p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
+
+==Miscellaneous==
+
+  * `public static function isId($id)`
+  * `public static function isThrottled($response)`
+  * `public function lastRequestHeader()`
+  * `public function lastRequestUrl()`
+  * `public function raw($method, $url, $body = NULL)`
+  * `public function retrieveTokenAccess($token, $secret, $verifier)`
+  * `public function retrieveTokenRequest()`
+  * `public function revoke()`
+  * `public function setResponseFormat($format = self::_DEFAULT_RESPONSE_FORMAT)`
+  * `public function setToken($token)`
+  * `public static function xmlToArray($xml)`
 
 <p align="right">[Reference#Reference_(by_LinkedIn_API) ^ Top]</p>
