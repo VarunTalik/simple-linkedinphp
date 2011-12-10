@@ -51,7 +51,7 @@ A complete list of all changes to the Simple-!LinkedIn library.
 
 =====New=====
 
-  * Added tokenExchange.html and tokenExchange.php scripts, demonstrating new token exchange method.
+  * Added tokenExchange.html and tokenExchange.php scripts, demonstrating new `exchangeToken()` method.
 
 <p align="right">[ChangeLog#Change_Log ^ Top]</p>
 
