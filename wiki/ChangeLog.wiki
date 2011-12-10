@@ -45,6 +45,7 @@ A complete list of all changes to the Simple-!LinkedIn library.
 
   * Added new internal data checking to class constructor.
   * Added additional cURL response checking in `fetch()` method.
+  * Removed addition of unnecessary headers in `feth()` method.
   * Updated PHPDoc comments.
 
 ====Demo====
