@@ -13,6 +13,50 @@ A complete list of all changes to the Simple-!LinkedIn library.
 
 ==Version 3==
 
+===Version 3.3.0===
+
+====Core====
+
+=====New=====
+
+  * Added `_URL_AUTHORIZE` class constant, which points to the LinkedIn authorize endpoint.
+  * Added `createPostComment()` method, used to add a comment on a group post.
+  * Added `deletePostComment()` method, used to delete a comment on a group post.
+  * Added `exchangeToken()` method, used to exchange an OAuth 2.0 bearer token for a permanent OAuth 1.0 token.
+  * Added `unfollowPost()` method, used to unfollow a group post.
+  * Added `unlikePost()` method, used to unlike a group post.
+
+=====Changes=====
+
+  * Changed `_API_OAUTH_REALM` class constant to `_DEFAULT_OAUTH_REALM`.
+  * Changed `_API_OAUTH_VERSION` class constant to `_DEFAULT_OAUTH_VERSION`.
+  * Changed and deprecated `_URL_AUTH` class constant to `_URL_AUTHENTICATE` to better differentiate it from the new `_URL_AUTHORIZE` class constant.
+  * Changed `followPost()` method, removing the ability to use it to unfollow a particular post. Use the new `unfollowPost()` method to do this.
+  * Changed `likePost()` method, removing the ability to use it to unlike a particular post. Use the new `unlikePost()` method to do this.
+  * Renamed and deprecated private `checkResponse()` method to `setResponse()`.
+  * Changed `setResponse()` method from using PHP 5.3.x supported closures. No uses a simple iteration allowing for use with PHP < 5.3.x.
+  * Renamed and deprecated `comment()` method to `createUpdateComment()` to clarify it's use with network updates.
+  * Renamed and deprecated `comments()` method to `updateComments()` to clarify it's use with network updates.
+  * Renamed and deprecated `like()` method to `likeUpdate()` to clarify it's use with network updates.
+  * Renamed and deprecated `likes()` method to `updateLikes()` to clarify it's use with network updates.
+  * Renamed and deprecated `unlike()` method to `unlikeUpdate()` to clarify it's use with network updates.
+
+=====Miscellaneous=====
+
+  * Added new internal data checking to class constructor.
+  * Added additional cURL response checking in `fetch()` method.
+  * Updated PHPDoc comments.
+
+====Demo====
+
+=====New=====
+
+  * Added tokenExchange.html and tokenExchange.php scripts, demonstrating new token exchange method.
+
+<p align="right">[ChangeLog#Change_Log ^ Top]</p>
+
+----
+
 ===Version 3.2.0===
 
 ====Core====
