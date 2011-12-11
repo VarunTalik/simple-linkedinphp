@@ -24,7 +24,7 @@ To support/demo this added functionality, we've added a pair of new pages to the
 
 A live demo of these scripts can be found here:
 
-https://www.simplelinkedin.com/demo/exchange/tokenExchange.html
+https://simplelinkedin.fiftymission.net/demo/exchange/tokenExchange.html
 
 There are some additional changes to a few method signatures, and a few 'clean-up' items. 
 
