@@ -34,7 +34,7 @@ A complete list of all changes to the Simple-!LinkedIn library.
   * Changed `followPost()` method, removing the ability to use it to unfollow a particular post. Use the new `unfollowPost()` method to do this.
   * Changed `likePost()` method, removing the ability to use it to unlike a particular post. Use the new `unlikePost()` method to do this.
   * Renamed and deprecated private `checkResponse()` method to `setResponse()`.
-  * Changed `setResponse()` method from using PHP 5.3.x supported closures. No uses a simple iteration allowing for use with PHP < 5.3.x.
+  * Changed `setResponse()` method from using PHP 5.3.x supported closures. No uses a simple iteration allowing for use with PHP < 5.3.x. See issue 11 for more details.
   * Renamed and deprecated `comment()` method to `createUpdateComment()` to clarify it's use with network updates.
   * Renamed and deprecated `comments()` method to `updateComments()` to clarify it's use with network updates.
   * Renamed and deprecated `like()` method to `likeUpdate()` to clarify it's use with network updates.
