@@ -19,7 +19,7 @@ A complete list of all changes to the Simple-!LinkedIn library.
 
 =====New=====
 
-  * Added `_URL_AUTHORIZE` class constant, which points to the LinkedIn authorize endpoint.
+  * Added `_URL_AUTHORIZE` class constant, which points to the LinkedIn authorize endpoint. See issue 12 for the original enhancement suggestion.
   * Added `createPostComment()` method, used to add a comment on a group post.
   * Added `deletePostComment()` method, used to delete a comment on a group post.
   * Added `exchangeToken()` method, used to exchange an OAuth 2.0 bearer token for a permanent OAuth 1.0 token.
