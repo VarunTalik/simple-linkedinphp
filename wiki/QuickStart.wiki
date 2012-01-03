@@ -86,7 +86,7 @@ With the basics up and running, be sure to check the [ReleaseNotes Release Notes
 
 ==Spread the Word==
 
-Now that you are using the class, indicate it on [https://www.ohloh.net Ohloh] and help spread the word about this free open-source library!
+Now that you are using the class, indicate it on [https://www.ohloh.net Ohloh] and help spread the word about this free open-source library by clicking the 'I Use It' button below!
 
 <wiki:gadget url="http://www.ohloh.net/p/588064/widgets/project_users_logo.xml" height="43" border="0"/>
 
