@@ -84,6 +84,9 @@ The final step is to authorize the viewer - the demo scripts contain an example 
 
 With the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class. Additionally, the [ChangeLog Change Log] details all changes from version to version.
 
+
+<p align="right">[QuickStart#Quick_Start_Guide ^ Top]</p>
+
 ==Spread the Word==
 
 Now that you are using the class, indicate it on [https://www.ohloh.net Ohloh] and help spread the word about this free open-source library by clicking the 'I Use It' button below!
