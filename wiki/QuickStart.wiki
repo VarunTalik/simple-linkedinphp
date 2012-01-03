@@ -82,9 +82,11 @@ The final step is to authorize the viewer - the demo scripts contain an example 
 
 ==Latest Changes, Notes==
 
-Now that you have the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class. Additionally, the [ChangeLog Change Log] details all changes from version to version.
+With the basics up and running, be sure to check the [ReleaseNotes Release Notes] for the latest information on the current version of the Simple-!LinkedIn class. Additionally, the [ChangeLog Change Log] details all changes from version to version.
 
-Finally, if you are using the class, indicate it on [https://www.ohloh.net Ohloh]!
+==Spread the Word==
+
+Now that you are using the class, indicate it on [https://www.ohloh.net Ohloh] and help spread the word about this free open-source library!
 
 <wiki:gadget url="http://www.ohloh.net/p/588064/widgets/project_users_logo.xml" height="43" border="0"/>
 
